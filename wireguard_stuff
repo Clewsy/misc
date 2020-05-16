@@ -33,10 +33,17 @@ sudo systemctl enable wg-quick@wg0
 
 
 ############################
-#Client setup
+#Client setup android
 
 #install wireguard app (from fdroid)
 
 #generate qr code from client conf file
 #may need to install qrencode
 qrencode -t ansiutf8 < wg_clews_client.conf
+
+############################
+#Client setup ubuntu/debian
+#have the client conf file ready - wg_clews_client_nibbler.conf
+sudo cp wg_clews_client_nibbler.conf /etc/wireguard/wg0.conf
+sudo wg-quick up wg0
+
