@@ -39,6 +39,5 @@
 	git push origin master
 
 #completeley remove a file from repo - including past commits
-	git filter-branch --tree-filter 'rm -f my_file' HEAD
-	git pull
-	git push
+# follow this guide:
+# https://blog.tinned-software.net/remove-files-from-git-history/
