@@ -1,0 +1,13 @@
+#Install
+sudo apt-get install iperf
+
+#Use
+#On server (discards traffic)
+iperf -s
+#On client (generates traffic)
+iperf -c 192.168.1.1
+
+#mii-tool - use to determine negotiated network flow:
+mii-tool enp2s0
+#or eth-tool
+eth-tool enp2s0

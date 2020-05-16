@@ -1,0 +1,10 @@
+#Connect to phone over ssh
+
+#consider setting password on phnoe/termux
+passwd
+
+#initiate sshd on phone
+sshd
+
+#Over lan connect using default port 8022
+ssh b4t-phone -p 8022

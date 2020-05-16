@@ -1,0 +1,4 @@
+#asunder for ripping (gtk app) (will also need to install lame encoder)
+#EasyTAG is a good tag editor (gtk app)
+
+sudo apt install asunder lame easytag

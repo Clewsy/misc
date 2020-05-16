@@ -1,0 +1,86 @@
+#handy guide:
+https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/
+
+iptables -L -v		#-L to list current rules, -v for verbose
+
+#chain types:
+#	INPUT		This chain is used to control the behavior for incoming connections. 
+#	FORWARD		This chain is used for incoming connections that aren’t actually being delivered locally. Think of a router...
+#	OUTPUT		This chain is used for outgoing connections.
+
+#setting "policy" for the chains sets the default behaviour.  following example sets defaults to accept connections
+iptables --policy INPUT ACCEPT
+iptables --policy OUTPUT ACCEPT
+iptables --policy FORWARD ACCEPT
+
+#alternatively, following commands sets default to drop all connections
+iptables --policy INPUT DROP
+iptables --policy OUTPUT DROP
+iptables --policy FORWARD DROP
+
+#available actions for dealing with connections:
+#	Accept – Allow the connection.
+#	Drop – Drop the connection, act like it never happened.
+#	Reject – Don’t allow the connection, but send back an error.
+
+
+#This example shows how to block all connections from the IP address 10.10.10.10.
+iptables -A INPUT -s 10.10.10.10 -j DROP	#-A to append chain (INPUT) with this rule
+						#-s to specify source ip (10.10.10.10)
+						#-j for jump to specify how to handle the connection (DROP)
+
+#This example shows how to block all of the IP addresses in the 10.10.10.0/24 network range.
+#You can use a netmask or standard slash notation to specify the range of IP addresses.
+iptables -A INPUT -s 10.10.10.0/24 -j DROP
+#or
+iptables -A INPUT -s 10.10.10.0/255.255.255.0 -j DROP
+
+#This example shows how to block SSH connections from 10.10.10.10.
+iptables -A INPUT -p tcp --dport ssh -s 10.10.10.10 -j DROP	#-p to specify protocol (e.g. tcp, udp)
+								#--dport to specify intended destination port # or protocol.
+#or
+iptables -A INPUT -p tcp --dport 22 -s 10.10.10.10 -j DROP
+
+#This example shows how to block SSH connections from any IP address.
+iptables -A INPUT -p tcp --dport ssh -j DROP
+
+#this example, where SSH connections FROM 10.10.10.10 are permitted, but SSH connections TO 10.10.10.10 are not.
+#However, the system is permitted to send back information over SSH as long as the session has already been established,
+#which makes SSH communication possible between these two hosts.
+iptables -A INPUT -p tcp --dport ssh -s 10.10.10.10 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -d 10.10.10.10 -m state --state ESTABLISHED -j ACCEPT
+						#-m to check for a match - in this case of state
+						#--sport to specify source port
+						#-d to define destination ip
+
+#exmaple allows incoming and forwarding connections using tunnnel interface (e.g. when using a vpn)
+iptables -A INPUT -i tun+ -j ACCEPT
+iptables -A FORWARD -i tun+ -j ACCEPT
+
+#to save changes to iptable
+sudo /sbin/iptables-save
+
+#To clear all the currently configured rules, you can issue the flush command.
+iptables -F
+ 
+################
+##NAT network address translation
+################
+#link
+https://www.netfilter.org/documentation/HOWTO/NAT-HOWTO-6.html
+###############
+iptables -t nat	<other stuff> #option to change the NAT table
+#following example will make all packets sent out appear to have come from eth0, even if tun0 is active (openvpn)
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#	-t nat to specify changes to the NAT table
+#	-A to append rule to the selected chain (POSTROUTING)
+#	POSTROUTING chain selected to alter the packet just before it is sent out
+#	-o to set outgoing interface (eth0)
+#	-j for jump to set the action to apply to the packet (MASQUERADE)
+#	MASQUERADE  needed due to dynamic external IP address, so no source address is needed.
+#		also this way if the link goes down, connections are forgotten to avoid glitches when re-connecting from a different ip.
+
+#POSTROUTING chain used to alter packet just before it is sent out
+#e.g. to change the source address
+#
+#PREROUTING chain used to alter packet just as it comes in

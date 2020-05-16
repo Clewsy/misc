@@ -1,0 +1,41 @@
+http://kbroman.org/github_tutorial/pages/first_time.html
+
+add ssh key to github account
+	copy key with:
+		cat ~/.ssh/id_rsa.pub
+	In github account settings, add ssh key
+	test with:
+		ssh -T git@github.com
+
+Set some global settings
+	git config --global user.name "clewsy"
+	git config --global user.email "jadon@clews.pro"
+	git config --global color.ui true
+	git config --global core.editor vim
+
+clone an existing repo to the local machine
+	git clone git@gitlab.com:clewsy/scripts
+
+initialise a new repo in the current directory
+	git init
+
+add all files in directory to repo
+	git add .
+
+commit files to repo
+	git commit -m "message to attach to the commit"
+
+ignore files from repo
+	vim .gitignore and add file list
+	git add .gitignore
+	git commit
+
+connect local repo to github and push local to github
+	git remote add origin git@github.com:Clewsy/scripts
+	git push origin master
+
+rename a file in the repository
+	git mv old_filename new_filename
+	git status
+	git commit -m "renamed file"
+	git push origin master

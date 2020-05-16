@@ -1,0 +1,24 @@
+#Ensure nfs-common package is installed
+sudo apt-get install nfs-common
+
+
+####Manual access
+#create local mount point
+sudo mkdir /mnt/[local_path]
+
+#manually mount
+sudo mount [hostname]:/[remote_path] [local_path]
+
+#example
+sudo mkdir /mnt/D4T4
+sudo mount zapp:/export/D4T4
+
+
+######Automatic access
+#add item to fstab
+sudo vim /etc/fstab
+[hostname]:/[remote_path]	[local_path]	nfs	auto,rw,user,intr	0	0
+
+#example
+sudo vim /etc/fstab
+zapp:/export/1TB	/mnt/zapp/1TB	nfs	auto,rw,user,intr	0	0

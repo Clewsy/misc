@@ -1,0 +1,8 @@
+#Generate a random number:
+echo $RANDOM
+
+#Seed with epoch time:
+RANDOM=$(date +%s)
+
+#Generate within a range, e.g. between 0 and 128:
+NUMB=$(( $RANDOM % 129 ))

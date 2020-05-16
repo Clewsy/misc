@@ -1,0 +1,101 @@
+######################
+##1 - ddclient
+######################
+#reference article - https://samhobbs.co.uk/2015/01/dynamic-dns-ddclient-raspberry-pi-and-ubuntu
+#install
+sudo apt-get install ddclient
+#configure for domain
+sudo vim /etc/ddclient.conf
+###
+use=web,web=dynamicdns.park-your-domain.com/getip
+ssl=yes
+protocol=namecheap
+server=dynamicdns.park-your-domain.com
+login=b4t.site
+password=289ea41bdf6f4a2f9f7608e508a030f3
+@
+###
+#test
+sudo ddclient -daemon=0 -debug -verbose -noquiet
+##in the test output search for "using ssl" (not http) to ensure secure
+##if not using ssl, delete the ddclient.cache file and try again
+sudo rm /var/cache/ddclient/ddclient.cache
+
+
+
+######################
+##2 - pi-hole
+######################
+#reference article - https://appliedcaffeine.org/pi-hole-on-beagleboard.html
+######################
+##2.1 - uninstall connman to free port 53
+#Note - dont simply uninstall without alternative network manager in place and ability to ssh back into bb
+#Instead, install network-manager which will automatically uninstall connman
+sudo apt-get install network-manager
+#Note: will seem to hang when apt is uninstalling connman - be patient!!  SSH session will be re-setablished.
+#Double-note - for me (20180616) this didn't work as expected - network-manager was installed but connman remained.
+##I then uninstalled connman which caused a disconnect but I gave it a few minutes then rebooted - connman was gone.
+sudo apt-get remove connman
+######################
+##2.2 - uninstall node.js to free port 80 (if pi-hole web-interface is desired)
+sudo apt-get remove nodejs
+######################
+##2.3 - install pi-hole
+curl -SL https://install.pi-hole.net | bash
+# -S (or --show-error)
+# -L (or --location) automates download from the re-direction uMP264 rl if it exists
+######################
+##2.4 - fix duplicate cache-size directive in SoftAP0
+###refer https://discourse.pi-hole.net/t/pi-holes-default-cache-directive-conflicts-with-cache-size-directive-in-softap0/8369
+vim /opt/scripts/boot/am335x_evm.sh
+##comment out as per following line
+#echo "cache-size=2048" >> ${wfile}
+######################
+##2.5 - router config
+#ensure pi-hole server ip address is static
+#set router dns server address to local pi-hole address
+#On the crappy MP264:
+#Network Connections -> Lan Bridge -> Settings -> DNS Server
+#Set primary to pi-hole's static IP, secondary to external DNS such as Google's (8.8.8.8)
+######################
+##2.6 - edit /etc/hosts so that hostnames on the local network can be resolved by anything using pihole as DNS
+vim /etc/hosts
+##e.g. add:	192.168.1.10	osmc
+######################
+##2.7 - updgrading pihole
+pihole -up
+#note following:
+#"With Pi-Hole V4, dnsmasq is embedded in pihole-FTL, and dnsmasq does not run as a separate process."
+#"You will want to stop dnsmasq, disable it and let pihole-FTL bind on port 53."
+#"All the existing dnsmasq configuration files will continue to work as before."
+sudo service dnsmasq stop
+sudo systemctl disable dnsmasq
+sudo service pihole-FTL restart
+#OR - uninstall dnsmasq so you don't have to deal with the above in the future
+sudo apt-get remove dnsmasq
+
+
+######################
+##3 - adding uSD card as external storage at boot
+######################
+#reference article - https://electronicsembedded.blogspot.com/2014/10/beaglebone-black-using-sd-card-as-extra.html
+#Note, BBB looks to boot from SD card unless it finds uEnv.txt configured in a specific way.  Therefore, uEnv.txt must remain on uSD.
+####
+#3.1 - create directory at desired location on the bbb
+sudo mkdir /media/cache
+###
+#3.2 - create uEnv.txt file on the sd cart
+#card must be formatted with FAT.  may require temporary mountor write file using alternate computer
+#contents of uEnv.txt:
+mmcdev=1
+bootpart=1:2
+mmcroot=/dev/mmcblk1p2 ro
+optargs=quiet
+###
+#3.3 - modify fstab file (file system table)
+sudo vim /etc/fstab
+#add the following line
+#Note "uid=1001" - confirm user id with "id" command - this is required to give non-root access to the mount point
+/dev/mmcblk0p1	/media/cache	auto	auto,rw,async,user,uid=1001,nofail	0	0
+###
+#3.4 - reboot

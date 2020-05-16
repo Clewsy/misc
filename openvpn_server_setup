@@ -1,0 +1,7 @@
+##remember to run as root
+
+#server setup script
+wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+
+#note, above url is shortened, here is the full url
+wget https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh -O openvpn-install.sh && bash openvpn-install.sh

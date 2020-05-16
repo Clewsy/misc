@@ -1,0 +1,20 @@
+#install avrdude stuff
+sudo apt-get install avrdude avrdude-doc binutils-avr avr-libc gcc-avr gdb-avr
+
+#making - will compile executable "main"
+gcc main.c another_file.c serialLibrary.c -o main
+#or from a makefile
+main: main.c another_file.c serialLibrary.c
+#then make with command:
+make main
+
+#avrdude stuff
+#list all compatible packages
+avrdude -p ?
+#list all programmers
+avrdude -c ?
+#interrogate avr example (i.e. check wiring is all good)
+avrdude -p m328p -c usbasp
+
+#communicate with AVR via serial/USART
+screen /dev/ttyUSB0 9600

@@ -1,0 +1,22 @@
+###Don't forget to unmount first else dd may not work
+umount /media/b4t/drive
+
+#0#
+#standard example
+sudo dd if=/some/file.iso of=/dev/sdX bs=1M
+
+#1#
+#use pv (pipe viewer) to get live progress output
+sudo dd if=/some/file.iso bs=1M | pv | dd of=/dev/sdX
+
+#2#
+#use kill with -USR1 switch to output current progress
+sudo dd if=/some/file.iso of=/dev/sdX bs=1M
+sudo kill -USR1 <pidofddcommand>
+
+#shell shortcut to get pidofddcommand
+sudo kill -USR1 $(pgrep ^dd)
+
+#3#
+#use dd embedded progress bar
+sudo dd if=/some/file.iso of=/dev/sdX bs=1M status=progress
