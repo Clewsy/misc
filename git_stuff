@@ -42,16 +42,25 @@
 # follow this guide:
 # https://blog.tinned-software.net/remove-files-from-git-history/
 git filter-branch --force --index-filter 'git rm -rf --cached --ignore-unmatch directory/and/filename.extension' --prune-empty --tag-name-filter cat -- --all
-
 git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
-
 git reflog expire --expire=now --all
-
 git gc --prune=now
-
 #Repo has to be unprotected
 git push origin --force --all
-
 git push origin --force --tags
 
+######Clone a repo - push from gitlab to github
+# In github - create the repo - same name as that to be mirrored from gitlab
+# In github - generate a token
+# In UI: Settings -> Developer Settings -> Personal access tokens -> Generate new token -> <enter a "Note" e.g. "gitlab_push_docs"> -> Check write:packages -> Generate Token
+# Copy token -> e.g. GENERATEDTOKEN
+####
+# In gitlab - open repo to be pushed
+# Settings -> Repository -> Mirroring Repositories "Expand"
+# Git Repository URL: https://clewsy@github.com/clewsy/docs.git
+# Mirror direction: Push
+# Authentication method: Password
+# Password: GENERATEDTOKEN (make sure spaces weren't copied).
+# "Mirror Repository"
+# Test by pressing the "Update now" button.
 
