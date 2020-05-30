@@ -84,3 +84,27 @@ function colorgrid( )
         printf '\r\n'
     done
 }
+
+#Create coloured "image" that is printable in the terminal
+#Need to install viu to convert image file:
+# https://github.com/atanunq/viu/releases
+
+# create a cat-able file (use -t to preserve transparency in png files).
+viu -t image.png > image.txt
+# Note this text file will have literal escape codes (hex value 0x1B).  Need to convert to "\033" for use in bash scripting.
+
+viu -t image.png | sed 's/x1b\[/\x5c\x30\x33\x33\[/g' > image.txt
+
+#Note 'g' in the sed expression to capture all instances of ox1B in a line instead of just the first.
+
+#Also note, echo-ing output txt file like this:
+echo -e $(cat image.txt)
+#will not properly show newlines.  Modify viu / sed command to add in newlines:
+viu -t image.png | sed 's/\x1b\[/\x5c\x30\x33\x33\[/g' | sed 's/$/\\n/' > image.txt
+#I.e. at end of line ('$') add newline ("\n").
+
+#Can now print from bash script:
+echo -e $(cat image.txt)
+
+#For use in /etc/update-motd.d/99-image motd generation script, limit width to 80.  I,e, use:
+viu -t image.png -w 80 | sed 's/\x1b\[/\x5c\x30\x33\x33\[/g' > motd_image
