@@ -83,10 +83,10 @@ action_buttons:
     command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_cut_on" > /dev/null && curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_led_off" > /dev/null'
 
   - type: light_on
-    camera: 3
+    camera: 4
     command: 'curl -s http://p0wer.lan/index.php?a=on >> /dev/null'
   - type: light_off
-    camera: 3
+    camera: 4
     command: 'curl -s http://p0wer.lan/index.php?a=off >> /dev/null'
 ```
 
