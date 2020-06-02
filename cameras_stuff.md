@@ -39,7 +39,7 @@
 
 
 # Action commands:
-
+```yaml
 action_buttons:
   - type: up
     camera: 1
@@ -88,7 +88,7 @@ action_buttons:
   - type: light_off
     camera: 3
     command: 'curl -s http://p0wer.lan/index.php?a=off >> /dev/null'
-
+```
 
 
 
