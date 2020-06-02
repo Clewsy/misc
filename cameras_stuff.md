@@ -1,7 +1,7 @@
 # 1 - hallway
 
 ## Admin:
-- http://hallway/
+- url: http://hallway/
 - ugh, needs IE
 
 ## Stream:
