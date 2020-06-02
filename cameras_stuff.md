@@ -1,41 +1,41 @@
 # 1 - hallway
 
 ## Admin:
-	* http://hallway/
-	* ugh, needs IE
+- http://hallway/
+- ugh, needs IE
 
 ## Stream:
-	* url: http://hallway.lan/mjpeg.cgi
-	* log in as admin
+- url: http://hallway.lan/mjpeg.cgi
+- log in as admin
 
 # 2 - lounge
 
 ## Admin
-	* url: http://donbot
-	* log in as root
+- url: http://donbot
+- log in as root
 
 ## Stream:
-	* url: rtsp://donbot.lan:8888/unicast
-	* user: b4t
-	* resolution: 1280x720
+- url: rtsp://donbot.lan:8888/unicast
+- user: b4t
+- resolution: 1280x720
 
 # 3 - b4t-cam
 
 ## Admin:
-	* Standard motion on raspbian deployed with ansible.
+- Standard motion on raspbian deployed with ansible.
 
 ## Stream:
-	* http://b4t-cam:8888
-	* resolution: 640x480
+- http://b4t-cam:8888
+- resolution: 640x480
 
 # 4 - pazuzu
 
 ## Admin:
-	* Standard motion on raspbian deployed with ansible.
+- Standard motion on raspbian deployed with ansible.
 
 ## Stream:
-	* http://pazuzu:8888
-	* resolution: 640x480
+- http://pazuzu:8888
+- resolution: 640x480
 
 
 # Action commands:
@@ -62,25 +62,25 @@ action_buttons:
 
   - type: up
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_up" -d"val=50" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_up" -d"val=50" > /dev/null'
   - type: down
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_down" -d"val=50" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_down" -d"val=50" > /dev/null'
   - type: left
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_left" -d"val=50" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_left" -d"val=50" > /dev/null'
   - type: right
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_right" -d"val=50" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_right" -d"val=50" > /dev/null'
   - type: preset1
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_calibrate" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=motor_calibrate" > /dev/null'
   - type: light_on
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_cut_off" > /dev/null && curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_led_on" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_cut_off" > /dev/null && curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_led_on" > /dev/null'
   - type: light_off
     camera: 2
-    command: 'curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_cut_on" > /dev/null && curl --insecure --silent --user root:nuffy969 https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_led_off" > /dev/null'
+    command: 'curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_cut_on" > /dev/null && curl --insecure --silent --user root:password https://donbot.lan/cgi-bin/action.cgi -d"cmd=ir_led_off" > /dev/null'
 
   - type: light_on
     camera: 3
