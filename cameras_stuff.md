@@ -25,7 +25,7 @@
 - Standard motion on raspbian deployed with ansible.
 
 ## Stream:
-- http://b4t-cam:8888
+- http://b4t-cam.lan:8888
 - resolution: 640x480
 
 # 4 - pazuzu
@@ -34,7 +34,7 @@
 - Standard motion on raspbian deployed with ansible.
 
 ## Stream:
-- http://pazuzu:8888
+- http://pazuzu.lan:8888
 - resolution: 640x480
 
 
