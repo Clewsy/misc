@@ -1,3 +1,5 @@
+##Reminder, uses dropbear for ssh.  Keys and authorized_keys at /etc/dropbear
+
 ##link to latest firmware for Linksys WRT32X
 #https://openwrt.org/toh/linksys/linksys_wrt32x
 opkg update && opkg install	luci-app-ddns \
