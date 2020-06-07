@@ -6,7 +6,9 @@ opkg update && opkg install	luci-app-ddns \
 				luci-ssl-openssl \
 				wireguard \
 				luci-app-wireguard \
+				qrencode \
 				luci-mod-rpc
+
 
 
 #ddns client
@@ -25,6 +27,7 @@ opkg install luci-app-adblock luci-ssl-openssl
 
 #wireguard - openwrt setup
 #install software wireguard, wireguard-tools, luci-app-wireguard and luci-proto-wireguard (and maybe kmod-wireguard?)
+#also qrencode for displaying, you guessed it, qr codes through the webui.
 opkg install wireguard luci-app-wireguard
 #to create wireguard keys:
 wg genkey > wg_privkey			##Create the private key
