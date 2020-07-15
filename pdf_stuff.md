@@ -9,7 +9,7 @@ $ convert image.jpg image.pdf
 $ convert -rotate 90 image.jpg image.pdf
 ```
 
-# rotate 90 degrees - required pdftk
+# rotate 90 degrees - requires pdftk
 Don't use convert - it will first pdf to an image, rotate then convert back to a pdf
 Rotate clockwise:
 ```shell
@@ -26,12 +26,12 @@ $ pdftk schematic.pdf cat 1-endleft output schematic_rot.pdf
 ```
 for counter-clockwise, change ```1-endright``` to ```1-endleft```
 
-# extract pages - required pdftk
+# extract pages - requires pdftk
 ```shell
 $ pdftk full-pdf.pdf cat 12-15 output outfile_p12-15.pdf
 ```
 
-# merge pages - required pdftk
+# merge pages - requires pdftk
 ```shell
 $ pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
 ```
