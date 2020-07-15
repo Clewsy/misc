@@ -1,5 +1,0 @@
-#as root:
-cat /var/log/auth.log | grep 'sshd.*Invalid'
-
-#for successful logins:
-cat /var/log/auth.log | grep 'sshd.*opened'

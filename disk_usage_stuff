@@ -1,2 +1,0 @@
-#install and use ncdu
-sudo apt update && sudo apt install ncdu

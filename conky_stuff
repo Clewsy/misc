@@ -1,9 +1,0 @@
-#To get temperature sensos working, install lm-sensors
-sudo apt update && sudo apt install lm-sensors
-
-#Run it to figure out the host's sensors:
-sudo sensors-detect
-sudo service module-init-tools restart
-
-#test it:
-sensors
