@@ -7,13 +7,13 @@ First be sure to run `DRC` to check for errors and missing connections.
 `Output directory` - Set to directory relative to project.
 
 Ensure following `Included Layers` are selected:
-1. F.Cu
-2. B.Cu
-3. F.SilkS
-4. B.SilkS
-5. F.Mask
-6. B.Mask
-7. Edge.Cuts
+- [x] F.Cu
+- [x] B.Cu
+- [x] F.SilkS
+- [x] B.SilkS
+- [x] F.Mask
+- [x] B.Mask
+- [x] Edge.Cuts
 
 Click `Plot` to generate plots.
  
