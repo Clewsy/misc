@@ -39,6 +39,7 @@ Run backup script to copy useful files to file_cache.
 - Bitwarden
 - DAVx5
 - DuckDuckGo Privacy Browser
+- Easy XKCD
 - Fennec F-Droid
 - Forecastie
 - Frost for Facebook
