@@ -4,6 +4,7 @@
 
 ### Configs to back-up
 Ensure destination of all files is the __Download__ dir for scripted backup to file\_cache.
+
 |App				|Backup Instructions														|Saved Filename					|
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 |andOTP				|Menu -> Backup -> Backup (encrypted) -> Download -> Save -> Password -> Save							|otp accounts.json.aes (#)			|
