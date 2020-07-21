@@ -1,3 +1,5 @@
+# Set up wifi using cli
+```shell
 $  connmanctl 
 connmanctl> 
 connmanctl> scan wifi 
@@ -18,15 +20,14 @@ Passphrase? $PASS
 Connected wifi_f8d111090ed6_6d617269636f6e5f64655f6d6965726461_managed_psk
 
 connmanctl> quit
+```
 
-
-
-
-
-##########################
-  # cat << EOF > /var/lib/connman/<SSID>-psk.config
-  [service_wifi_<hash>_managed_psk]
-  Type = wifi
-  Name = <SSID>
-  Passphrase = <passphrase>
-  EOF
+# Set up wifi manually
+```shell
+$ cat << EOF > /var/lib/connman/<SSID>-psk.config
+[service_wifi_<hash>_managed_psk]
+Type = wifi
+Name = <SSID>
+Passphrase = <passphrase>
+EOF
+```
