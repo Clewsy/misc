@@ -1,6 +1,6 @@
 # Install
 ```shell
-$ sudo apt-get install iperf3
+$ sudo apt install iperf3
 ```
 
 # Use
