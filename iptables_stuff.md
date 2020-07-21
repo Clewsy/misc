@@ -109,6 +109,7 @@ $ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 # Handy guides:
 https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/
+
 https://www.netfilter.org/documentation/HOWTO/NAT-HOWTO-6.html
 
 
