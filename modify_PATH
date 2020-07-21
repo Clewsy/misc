@@ -1,7 +1,0 @@
-#To see current PATH
-echo $PATH
-
-#To add ~/bin temporarily
-PATH=$PATH:~/bin
-
-#For a permanent addition modify ~/.profile

@@ -1,13 +1,14 @@
-##started with instructions at instructables
-##http://www.instructables.com/id/How-to-Make-Raspberry-Pi-Webcam-Server-and-Stream-/
+# Install
+```shell
+$ sudo apt-get install motion
+```
 
-##install motion
-sudo apt-get install motion
-
-
-##configure /etc/motion/motion.conf
-vim /etc/motion/motion.conf
-
+# Configure camera
+```shell
+$ vim /etc/motion/motion.conf
+```
+Useful options to customise:
+```shell
 daemon on		##enables the daemon
 framerate 100		##default is 2 (lowest)		
 stream_port 8890	##or whatever port - will have to be opened throgh router for externall viewing
@@ -18,26 +19,34 @@ quality 100
 width 640
 height 480
 post_capture 5
-
+ 
 stream_auth_method 2	##enable hashed authentication
 stream_authentication username:password
-
+ 
 ffmpeg_output_movies off	##disable recording video to files
 output_pictures off		##disable recording image (jpg) files
+```
 
-##configure /etc/default/motion
-vim /etc/default/motion
-
+# Configure service
+```shell
+$ vim /etc/default/motion
+```
+Enable daemonisation at boot:
+```shell
 start_motion_daemon=yes		##enable daemon autostart
+```
 
-##restart motion service
-sudo service motion restart
+# Restart service
+```shell
+$ sudo service motion restart
+```
 
-##start motion
-sudo reboot
-#or
-motion
+# Start motion
+```shell
+$ sudo reboot
+```
+Or
+```shell
+$ motion
+```
 
-##setup port forwarding
-#example:
-#TCP Any -> 8890
