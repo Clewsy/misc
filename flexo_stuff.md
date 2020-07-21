@@ -4,7 +4,7 @@
 
 ### Configs to back-up
 Ensure destination of all files is the *Download* dir for scripted backup to file_cache.
-|App|Backup Instructions|Saved Filename|
+|App				|Backup Instructions														|Saved Filename					|
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 |andOTP				|Menu -> Backup -> Backup (encrypted) -> *Download* -> Save -> *Password* -> Save						|**otp_accounts.json.aes (#)**			|
 |AntennaPod (Subscriptions)	|Menu -> Settings -> Storage -> Import/Export -> OPML export -> *Download* -> Save -> OK					|**antennapod-feeds.opml (#)**			|

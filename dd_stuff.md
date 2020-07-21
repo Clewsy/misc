@@ -1,8 +1,8 @@
 # dd
 
-## -1.0 Don't forget to unmount first else dd may not work
+## -1.0 Don't forget to unmount first, else dd may not work
 ```shell
-$ umount /media/b4t/drive
+$ sudo umount /media/b4t/drive
 ```
 
 ## 0.0 standard example

@@ -1,13 +1,14 @@
-## usb connection
-if an ip is not automatically set up
-1) determine interface name
+## USB connection
+If an ip is not automatically set up
+1) Determine interface name
 ```shell
-ifconfig
+$ ifconfig
 ```
-2) assign static ip to interface
+2) Assign static ip to interface
 ```shell
-ifconfig <interface> 172.16.84.2 netmask 255.255.255.0 up
+$ ifconfig <interface> 172.16.84.2 netmask 255.255.255.0 up
 ```
 
-## access
-ssh root@172.16.84.1
+## Access
+$ ssh root@172.16.84.1
+

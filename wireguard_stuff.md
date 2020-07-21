@@ -3,7 +3,7 @@
 
 Create private key.
 ```shell
-$ uamsk 077
+$ umask 077
 $ wg genkey > privatekey
 ```
 
@@ -18,7 +18,7 @@ Install wireguard.
 
 Open ufw firewall port on server.
 ```shell
-$ ufw allow 55505/udp
+$ ufw allow 44444/udp
 ```
 
 Enable routing on the server.
@@ -31,7 +31,7 @@ $ sudo sysctl --system
 
 Move and rename server config file.
 ```shell
-$ sudo mv wg_clews_server_wg0.conf /etc/wireguard/wg0.conf
+$ sudo mv wg_server_wg0.conf /etc/wireguard/wg0.conf
 ```
 
 Start wg with the conf file and enable start at boot.
@@ -47,12 +47,13 @@ Install wireguard app (from fdroid).
 Generate qr code from client conf file.
 May need to install qrencode.
 ```shell
-qrencode -t ansiutf8 < wg_clews_client.conf
+$ sudo apt update && sudo apt install qrencode #If not already installed.
+$ qrencode -t ansiutf8 < wg_client.conf
 ```
 
 # Client setup ubuntu/debian
-Have the client conf file ready: **wg_clews_client_nibbler.conf**
+Have the client conf file ready: **wg_client_nibbler.conf**
 ```shell
-$ sudo cp wg_clews_client_nibbler.conf /etc/wireguard/wg0.conf
+$ sudo cp wg_client_nibbler.conf /etc/wireguard/wg0.conf
 $ sudo wg-quick up wg0
 ```

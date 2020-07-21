@@ -1,10 +1,10 @@
 # zapp
 
-How to configure openmediavault via gui
+How to configure openmediavault via gui.
 
 ## Initial login
 
-Webui credentials are:
+Webui default credentials are:
 * Username: admin
 * Password: openmediavault
 
@@ -14,21 +14,21 @@ Webui credentials are:
 
 ### Web Administration
 
-* General settings
-	* Auto logout: 1 day
+General settings
+* Auto logout: 1 day
 
 ### Web Administrator Password
 
-* Set new password
+Set new password
 
 ## Certificates
 
 ### SSH
 
-* Add -> Import: b4t@zapp
-	* Private key -> copy from id_rsa
-	* Public key -> Copy from id_rsa.pub
-	* Comment: b4t@zapp
+Add -> Import: user@host
+* Private key -> copy from id_rsa
+* Public key -> Copy from id_rsa.pub
+* Comment: user@host
 
 # Storage
 
@@ -48,8 +48,7 @@ No changes, but check they're all there:
 
 ### Devices
 
-Turn on "Monitor" for:
-
+Turn on **Monitor** for:
 * /dev/sdc
 * /dev/sdd
 * /dev/sde
@@ -57,8 +56,7 @@ Turn on "Monitor" for:
 ## RAID Management
 
 No changes, but check mirror is detected:
-
-* zapp:cl0ud -> /dev/md127 -> clean -> Mirror -> 111.73 GiB ->
+* host:cl0ud -> /dev/md127 -> clean -> Mirror -> 111.73 GiB ->
 	* /dev/sdd
 	* /dev/sde
 
@@ -80,9 +78,8 @@ Mount all except swap (/dev/sda5)
 
 ### Users
 
-No changes, but check groups for b4t:
-
-* b4t
+No changes, but check groups for user:
+* user
 * sudo
 * ssh
 * docker
@@ -131,12 +128,12 @@ Add each of the following:
 
 Add and enable each of the following:
 
-| Type   | Source                   | Destination                            | Comment                                  |
-|--------|--------------------------|----------------------------------------|------------------------------------------|
-| Remote | jc@zoidberg:/home/docker | docker_zoidberg                        | daily_0100hrs docker_zoidberg zoid->zapp |
-| Remote | docker_zoidberg          | b4t@b4t.site:~/backups/docker_zoidberg | daily_0200hrs docker_zoidberg zapp->b4t  |
-| Remote | b4t@seymour:~/file_cache | cl0ud                                  | daily_0300hrs file_cache seymour->zapp   |
-| Remote | file_cache               | b4t@b4t.site:~/backups/file_cache      | daily_0400hrs file_cache zapp->b4t       |
+| Type   | Source                       | Destination                              | Comment                                  |
+|--------|------------------------------|------------------------------------------|------------------------------------------|
+| Remote | clewsy@zoidberg:/home/docker | docker_zoidberg                          | daily_0100hrs docker_zoidberg zoid->zapp |
+| Remote | docker_zoidberg              | user@user.site:~/backups/docker_zoidberg | daily_0200hrs docker_zoidberg zapp->user |
+| Remote | user@seymour:~/file_cache    | cl0ud                                    | daily_0300hrs file_cache seymour->zapp   |
+| Remote | file_cache                   | user@user.site:~/backups/file_cache      | daily_0400hrs file_cache zapp->user      |
 
 Specific settings for these shares:
 
@@ -144,11 +141,11 @@ Specific settings for these shares:
 	* Enable: check
 	* Type: Remote
 	* Mode: Pull
-	* Source server: jc@zoidberg:/home/docker
+	* Source server: clewsy@zoidberg:/home/docker
 	* Destination shared folder: docker_zoidberg
 	* Authentication: Public key
 	* SSH port: 22
-	* SSH certificate: b4t@zapp
+	* SSH certificate: user@zapp
 	* Minute: 0
 	* Hour: 1
 	* Turn on:
@@ -162,15 +159,15 @@ Specific settings for these shares:
 		* Delete
 	* Extra options: --human-readable
 	* Comment: daily_0100hrs docker_zoidberg zoid->zapp
-2. daily_0200hrs docker_zoidberg zapp->b4t
+2. daily_0200hrs docker_zoidberg zapp->user
 	* Enable: check
 	* Type: Remote
 	* Mode: Push
 	* Source shared folder: docker_zoidberg
-	* Destination server: b4t@b4t.site:~/backups/docker_zoidberg
+	* Destination server: user@user.site:~/backups/docker_zoidberg
 	* Authentication: Public key
 	* SSH port: 22
-	* SSH certificate: b4t@zapp
+	* SSH certificate: user@zapp
 	* Minute: 0
 	* Hour: 2
 	* Turn on:
@@ -183,16 +180,16 @@ Specific settings for these shares:
 		* Preserve ACLs
 		* Delete
 	* Extra options: --human-readable
-	* Comment: daily_0200hrs docker_zoidberg zapp->b4t
+	* Comment: daily_0200hrs docker_zoidberg zapp->user
 3. daily_0300hrs file_cache seymour->zapp
 	* Enable: check
 	* Type: Remote
 	* Mode: Pull
-	* Source server: b4t@seymour:~/file_cache
+	* Source server: user@seymour:~/file_cache
 	* Destination shared folder: cl0ud
 	* Authentication: Public key
 	* SSH port: 22
-	* SSH certificate: b4t@zapp
+	* SSH certificate: user@zapp
 	* Minute: 0
 	* Hour: 3
 	* Turn on:
@@ -205,15 +202,15 @@ Specific settings for these shares:
 		* Preserve ACLs
 	* Extra options: --human-readable
 	* Comment: daily_0300hrs file_cache seymour->zapp
-4. daily_0400hrs file_cache zapp->b4t
+4. daily_0400hrs file_cache zapp->user
 	* Enable: check
 	* Type: Remote
 	* Mode: Push
 	* Source shared folder: file_cache
-	* Destination server: b4t@b4t.site:~/backups/file_cache
+	* Destination server: user@user.site:~/backups/file_cache
 	* Authentication: Public key
 	* SSH port: 22
-	* SSH certificate: b4t@zapp
+	* SSH certificate: user@zapp
 	* Minute: 0
 	* Hour: 4
 	* Turn on:
@@ -225,6 +222,7 @@ Specific settings for these shares:
 		* Preserve owner
 		* Preserve ACLs
 	* Extra options: --human-readable
-	* Comment: daily_0400hrs file_cache zapp->b4t
+	* Comment: daily_0400hrs file_cache zapp->user
 
 Remember to add keys to known hosts and test the rsync jobs.
+

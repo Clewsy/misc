@@ -1,4 +1,4 @@
-# add ssh key to github account
+# Add ssh key to github account
 Copy key with:
 ```shell
 $ cat ~/.ssh/id_rsa.pub
@@ -69,7 +69,7 @@ $ git push origin master
 
 # Completeley remove a file from repo - including past commits
 Follow this guide:
-[https://blog.tinned-software.net/remove-files-from-git-history/]
+https://blog.tinned-software.net/remove-files-from-git-history/
 ```shell
 $ git filter-branch --force --index-filter 'git rm -rf --cached --ignore-unmatch directory/and/filename.extension' --prune-empty --tag-name-filter cat -- --all
 $ git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin

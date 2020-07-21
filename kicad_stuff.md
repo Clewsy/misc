@@ -27,6 +27,6 @@ Check the generated files in KiCad's GerbView.
 
 Zip files for upload to fabricator.
 ```shell
-$ cd [path_to_gerber_files]
+$ cd path_to_gerber_files
 $ zip gerber_files.zip *
 ```

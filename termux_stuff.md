@@ -12,6 +12,6 @@ $ sshd
 
 Over lan connect to phone/termux using default port 8022.
 ```shell
-$ ssh b4t-phone -p 8022
+$ ssh phone_hostname_or_ip -p 8022
 ```
 

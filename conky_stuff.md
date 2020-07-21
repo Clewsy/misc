@@ -1,5 +1,5 @@
 # Conky stuff
-To get temperature sensos working, install lm-sensors
+To get temperature sensos working, install lm-sensors:
 ```shell
 $ sudo apt update && sudo apt install lm-sensors
 ```
@@ -10,7 +10,7 @@ $ sudo sensors-detect
 $ sudo service module-init-tools restart
 ```
 
-test it:
+Test it:
 ```shell
 $ sensors
 ```

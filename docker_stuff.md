@@ -8,9 +8,9 @@ $ sudo apt-get dist-upgrade
 $ sudo apt-get install docker.io
 ```
 
-consider rebooting
+Consider rebooting.
 
-enable docker daemon
+Enable docker daemon:
 ```shell
 $ sudo systemctl enable docker.service
 $ sudo systemctl start docker.service
@@ -18,14 +18,14 @@ $ sudo systemctl start docker.service
 
 ## 2 Install docker-compose
 
-download latest docker-compose binary to the /usr/local/bin directory
+Download latest docker-compose binary to the /usr/local/bin directory:
 ```shell
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-make it executable
+Make it executable:
 ```shell
-$ sudo chmod +x /usr/local/bin/docker-composei
+$ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## 3 Set up docker group
@@ -40,9 +40,9 @@ $ sudo ufw allow OpenSSH	#opens port 22
 $ sudo ufw allow http		#opens port 80
 $ sudo ufw allow https		#opens port 443
 $ sudo ufw enable
-$ sudo ufw status
+$ sudo ufw status		#to confirm it's running as expected
 ```
 
 ## Addendum
-good guide for nextcloud:
+Good guide for nextcloud:
 https://blog.ssdnodes.com/blog/installing-nextcloud-docker/
