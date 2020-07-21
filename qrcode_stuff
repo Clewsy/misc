@@ -1,6 +1,0 @@
-##install qrencode
-sudo apt update
-sudo apt install qrencode
-
-##generate a qr code in the terminal from a text file:
-qrencode -t utf8 < config_file
