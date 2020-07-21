@@ -10,5 +10,7 @@ $ ifconfig <interface> 172.16.84.2 netmask 255.255.255.0 up
 ```
 
 ## Access
+```shell
 $ ssh root@172.16.84.1
+```
 

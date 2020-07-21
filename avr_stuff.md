@@ -1,11 +1,11 @@
 # Install avrdude stuff
 ```shell
-$ sudo apt update && sudo apt install\
-	avrdude\
-	avrdude-doc\
-	binutils-avr\
-	avr-libc\
-	gcc-avr\
+$ sudo apt update && sudo apt install \
+	avrdude \
+	avrdude-doc \
+	binutils-avr \
+	avr-libc \
+	gcc-avr \
 	gdb-avr
 ```
 
