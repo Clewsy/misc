@@ -1,22 +1,26 @@
-##Reference:
-## https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 
-##Example of coloured prompt:
-
+# Example of coloured prompt:
+```shell
+$ vim ~/.bashrc
+```
+Edit PS1 definition.
+```shell
 PS1 = "\[\033[1;31m\]\u:\w\$\[\033[0m\] "
 #      ^^^^^^^     ^^                    Begin/end ANSI escape
 #             ^^^^^                      "light red foreground"
 #                    ^^^^^^^             Your original prompt
 #                           ^^^^^^^^^^^  Reset color back to default foreground
 #
+```
 
-##Another Example
-##This gives user and host in yellow, '@', ':' and working dir in red, prompt '$' reset to white.
-
+# Another Example
+This gives user and host in yellow, '@', ':' and working dir in red, prompt '$' reset to white.
+```shell
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u\[\033[01;31m\]@\[\033[01;33m\]\h\[\033[01;31m\]:\w\[\033[00m\]\$ '
+```
 
-
-##Colours:
+# Colours:
+```shell
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
 txtgrn='\e[0;32m' # Green
@@ -50,8 +54,10 @@ bakpur='\e[45m'   # Purple
 bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
+```
 
-#Function to demo colours:
+# Function to demo colours:
+```shell
 function colorgrid( )
 {
     iter=16
@@ -84,27 +90,39 @@ function colorgrid( )
         printf '\r\n'
     done
 }
+```
 
-#Create coloured "image" that is printable in the terminal
-#Need to install viu to convert image file:
-# https://github.com/atanunq/viu/releases
+# Create coloured "image" that is printable in the terminal
+1. Need to install viu to convert image file: https://github.com/atanunq/viu/releases
+2. Create a cat-able file (use -t to preserve transparency in png files).
+```shell
+$ viu -t image.png > image.txt
+```
+3. This text file will have literal escape codes (hex value 0x1B).  Need to convert to "\033" for use in bash scripting.
+```shell
+$ viu -t image.png | sed 's/x1b\[/\x5c\x30\x33\x33\[/g' > image.txt
+```
+Note 'g' in the sed expression to capture all instances of ox1B in a line instead of just the first.
+Also note, echo-ing output txt file like this:
+```shell
+$ echo -e $(cat image.txt)
+```
+will not properly show newlines.  Modify viu / sed command to add in newlines:
+```shell
+$ viu -t image.png | sed 's/\x1b\[/\x5c\x30\x33\x33\[/g' | sed 's/$/\\n/' > image.txt
+```
+I.e. at end of line ('$') add newline ("\n").
 
-# create a cat-able file (use -t to preserve transparency in png files).
-viu -t image.png > image.txt
-# Note this text file will have literal escape codes (hex value 0x1B).  Need to convert to "\033" for use in bash scripting.
+4. Can now print from bash script:
+```shell
+$ echo -e $(cat image.txt)
+```
 
-viu -t image.png | sed 's/x1b\[/\x5c\x30\x33\x33\[/g' > image.txt
+5. For use in /etc/update-motd.d/99-image motd generation script, limit width to 80.  I,e, use:
+```shell
+$ viu -t image.png -w 80 | sed 's/\x1b\[/\x5c\x30\x33\x33\[/g' > motd_image
+```
 
-#Note 'g' in the sed expression to capture all instances of ox1B in a line instead of just the first.
+# Reference:
+https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 
-#Also note, echo-ing output txt file like this:
-echo -e $(cat image.txt)
-#will not properly show newlines.  Modify viu / sed command to add in newlines:
-viu -t image.png | sed 's/\x1b\[/\x5c\x30\x33\x33\[/g' | sed 's/$/\\n/' > image.txt
-#I.e. at end of line ('$') add newline ("\n").
-
-#Can now print from bash script:
-echo -e $(cat image.txt)
-
-#For use in /etc/update-motd.d/99-image motd generation script, limit width to 80.  I,e, use:
-viu -t image.png -w 80 | sed 's/\x1b\[/\x5c\x30\x33\x33\[/g' > motd_image
