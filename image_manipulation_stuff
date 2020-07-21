@@ -1,9 +1,0 @@
-##Using "convert" (part of imagemagick suite)
-#reduce image size by 50%
-convert image.jpg -resize 50% half_image.jpg
-
-#scale to  fixed width, proportional height
-convert image.jpg -resize 500x small_image.jpg
-
-#rotate image 90 degrees
-convert -rotate 90 image.jpg rotated_image.jpg
