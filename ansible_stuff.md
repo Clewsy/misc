@@ -1,10 +1,16 @@
-#ansible-vault - convert a key file to an encrypted string for embedding in .yml
-cat ~/.ssh/id_rsa.pub | ansible-vault encrypt_string
+# ansible-vault
+Convert a key file to an encrypted string for embedding in .yml:
+```shell
+$ cat ~/.ssh/id_rsa.pub | ansible-vault encrypt_string
+```
 
-#Must have ansible.cfg setting:
+Must have ansible.cfg setting:
+```shell
 vault_password_file = vault_key
+```
 
-#Use in yaml:
+Embed in yaml:
+```yaml
 ssh_public_key: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           62656163383933616432613365333562363534323435333034316134366538633236373936363030
@@ -31,7 +37,8 @@ ssh_public_key: !vault |
           39626362663062373732626435653530613163636365353461343735363135393438666661333836
           39613365306230616133326237376234666363323832626662333738623861316261633862643931
           36643934666434323739
+```
 
-#Quotes
-#Single quotes let you put almost any character in your string, and won't try to parse escape codes. '\n' would be returned as the string \n.
-#Double quotes parse escape codes. "\n" would be returned as a line feed character.
+# Quotes
+- Single quotes let you put almost any character in your string, and won't try to parse escape codes. '\n' would be returned as the string \n.
+- Double quotes parse escape codes. "\n" would be returned as a line feed character.
