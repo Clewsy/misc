@@ -5,6 +5,7 @@ $ sudo vim /etc/ssmtp/ssmtp.conf
 
 # Setup
 Uncomment `FromLineOverride=YES` by deleting the `#`
+
 Add the following to the file:
 ```shell
 AuthUser=<user>@gmail.com
