@@ -40,5 +40,5 @@ ssh_public_key: !vault |
 ```
 
 # Quotes
-- Single quotes let you put almost any character in your string, and won't try to parse escape codes. '\n' would be returned as the string \n.
-- Double quotes parse escape codes. "\n" would be returned as a line feed character.
+- Single quotes let you put almost any character in your string, and won't try to parse escape codes. `'\n'` would be returned as the string `\n`.
+- Double quotes parse escape codes. `"\n"` would be returned as a line feed character.
