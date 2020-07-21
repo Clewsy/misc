@@ -6,7 +6,7 @@ $ sudo apt update && sudo apt install nfs-common
 
 # Manual access
 Create local mount point
-``shell
+```shell
 $ sudo mkdir /mnt/[local_path]
 ```
 Mount
