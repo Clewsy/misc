@@ -15,3 +15,33 @@ Rotate image 90 degrees
 $ convert -rotate 90 image.jpg rotated_image.jpg
 ```
 
+# Using exiftool
+Install exiftool
+```shell
+$ sudo apt install libimage-exiftool-perl
+```
+
+View metadata (exif data).
+```shell
+$ exiftool image.jpg
+```
+
+Delete gps location data.
+```shell
+$ exiftool -gps:all= image.jpg
+```
+
+Delete all metadata.
+```shell
+$ exiftool -all= -overwrite_original image.jpg
+```
+
+Delete all metadata for all \*.jpg files within current directory.
+```shell
+$ exiftool -all= -r -overwrite_original -ext jpg .
+```
+
+Delete gps location data for all \*.jpg files within the current directory.
+```shell
+$ exiftool -gps:all= *.jpg
+```
