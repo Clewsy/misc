@@ -1,12 +1,14 @@
-# To enable headless ssh and wifi connection
+# Raspbian
+
+## To enable headless ssh and wifi connection
 Guide: https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
 
-# Enable ssh by creating a file calles "ssh" in the boot directory
+## Enable ssh by creating a file calles "ssh" in the boot directory
 ```shell
 $ touch /media/jc/boot/ssh
 ```
 
-# Enable wifi connectivity by creating `wpa_supplicant.conf` file in the boot directory
+## Enable wifi connectivity by creating `wpa_supplicant.conf` file in the boot directory
 ```shell
 $ vim /media/jc/boot/wpa_supplicant.conf
 ```
@@ -37,3 +39,32 @@ Remember to store hashed passphrase without quotes.  I.e.:
 
 Also remeber to change the default login (pi) and password (raspberry).
 
+
+# Ubuntu
+
+## Default login
+Username: ubuntu
+Password: ubuntu
+
+## Configure sd card for wifi
+In file */system-boot/network-config*
+
+```yaml
+wifis
+  wlan0:
+  dhcp4: true
+  optional: true
+  access-points:
+    "B4T-Cave":
+      password: "password"
+```
+Or hash password:
+```yaml
+    wifis:
+        wlan0:
+            access-points:
+                "B4T-Cave":
+                    password: 481dc47d86e25131512312351abc0d62fb3aef639etc
+            dhcp4: true
+            optional: true
+```
