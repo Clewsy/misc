@@ -1,3 +1,8 @@
+# facts from remote host
+```shell
+ansible <hostname> -m setup
+```
+
 # ansible-vault
 Convert a key file to an encrypted string for embedding in .yml:
 ```shell
