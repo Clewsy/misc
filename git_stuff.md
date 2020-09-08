@@ -53,7 +53,7 @@ $ git add .gitignore
 $ git commit -m "Added .gitignore file list."
 ```
 
-# Connect local repo to github and push local to github
+# Connect local repo to gitlab and push local to gitlab
 ```shell
 $ git remote add origin git@gitlab.com:clewsy/scripts
 $ git push origin master
