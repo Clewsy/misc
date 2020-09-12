@@ -1,5 +1,9 @@
 # Bulk file upload
 
+## Use webdav to browse files from nautilus.
+Address to use in nautilus:
+davs://example.com/nextcloud/remote.php/dav/files/USERNAME/
+
 ## Copy files
 Use rsync to bulk upload to nextcloud instance:
 ```shell
