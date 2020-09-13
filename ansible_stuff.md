@@ -4,6 +4,17 @@ ansible <hostname> -m setup
 ```
 
 # ansible-vault
+Encrypt a file with the vault key:
+```shell
+$ cd /ansible	#Run encryption command from the directory that contains the vault key.
+$ ansible-vault encrypt roles/example/files/secret.txt
+```
+Edit encrypted file
+```shell
+$ cd /ansible	#Run encryption command from the directory that contains the vault key.
+$ ansible-vault edit roles/example/files/secret.txt
+``` 
+
 Convert a key file to an encrypted string for embedding in .yml:
 ```shell
 $ cat ~/.ssh/id_rsa.pub | ansible-vault encrypt_string
