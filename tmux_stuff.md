@@ -1,5 +1,10 @@
 # tmux
 
+## Quick reference
+* Start session: ```tmux```
+* Detach session: Ctrl+B, D
+* Reconnect to session: ```tmux``` Ctrl+B, S, select detatched session.
+
 First press ctrl+b before entering command.
 
 ## Session Commands
