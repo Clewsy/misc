@@ -36,29 +36,29 @@ Add -> Import: user@host
 
 No changes, but check they're all there:
 
-| Device   | Model            | Capacity  |
-|----------|------------------|-----------|
-| /dev/sda | Corsair CMFSSD-6 | 59.63 GiB |
-| /dev/sde | KINGSTON SA40053 | 11.79 GiB |
-| /dev/sdd | KINGSTON SA40053 | 11.79 GiB |
-| /dev/sdc | ST4000DM004-2CV1 | 3.64 TiB  |
-| /dev/sdb | WDC WD15EADS-11P | 1.36 TiB  |
+| Device   | Model                 | Capacity   |
+|----------|-----------------------|------------|
+| /dev/sda | Corsair CMFSSD-64D1   | 59.63 GiB  |
+| /dev/sdb | ST4000DM004-2CV104    | 3.64 TiB   |
+| /dev/sdc | KINGSTON SA400537120G | 111.79 GiB |
+| /dev/sdd | KINGSTON SA400537120G | 111.79 GiB |
+| /dev/sde | WDC WD15EADS-11P8B1   | 1.36 TiB   |
 
 ## S.M.A.R.T.
 
 ### Devices
 
 Turn on **Monitor** for:
-* /dev/sdc
-* /dev/sdd
-* /dev/sde
+* /dev/sdb (ST4000DM004-2CV104 3.64TiB)
+* /dev/sdc (Kingston ... 111.79GiB)
+* /dev/sdd (Kingston ... 111.79GiB)
 
 ## RAID Management
 
 No changes, but check mirror is detected:
-* host:cl0ud -> /dev/md127 -> clean -> Mirror -> 111.73 GiB ->
+* host:cl0ud -> /dev/md127 -> clean -> Mirror -> 111.79 GiB ->
+	* /dev/sdc
 	* /dev/sdd
-	* /dev/sde
 
 ## File Systems
 
@@ -69,8 +69,8 @@ Mount all except swap (/dev/sda5)
 | /dev/sda1  | none (system) | ext4            | 46.66GiB  |
 | /dev/sda5  | none (swap)   | swap            | n/a       |
 | /dev/md127 | cl0ud         | ext4            | 109.47GiB |
-| /dev/sdc1  | f1leb0t       | ext4            | 3.58TiB   |
-| /dev/sdb1  | m0n0l1th      | ext4            | 1.34TiB   |
+| /dev/sdb1  | f1leb0t       | ext4            | 3.58TiB   |
+| /dev/sde1  | m0n0l1th      | ext4            | 1.34TiB   |
 
 # Access Rights Management
 
@@ -86,7 +86,7 @@ No changes, but check groups for user:
 
 ## Shared Folders
 
-Add each of the following:
+Add each of the following with **Permissions** set to **Everyone: read/write**:
 
 | Name            | Device   | Relative Path    |
 |-----------------|----------|------------------|
