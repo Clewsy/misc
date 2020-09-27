@@ -1,5 +1,27 @@
 # Partition Stuff
 
+## Create an ext4 partition.
+
+Determine which device:
+```shell
+$ sudo fdisk -l
+```
+
+Run fdisk:
+```shell
+$ sudo fdisk /dev/sdb
+```
+1. Press 'g' to create a new empty partition table (gpt for modern UEFI booting).
+2. Press 'n' to create a new partition.
+3. Set partition number, first sector, last sector.
+4. Verify by pressing 'p'.
+5. Commit changes and quit with 'w'.
+
+Activate the partition by formatting and mounting to the system's directory tree.  This is required so that the disks will be identifiable under /dev/disk/by-###:
+```shell
+$ sudo mkfs.ext4 -F /dev/sdb1
+```
+
 ## Configure a raid mirror (RAID1).
 
 Install prerequisites.
