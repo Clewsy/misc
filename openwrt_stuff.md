@@ -53,13 +53,13 @@ General setup:
 - Private Key=		<copy here, see above>
 - Listen Port=		"50005"
 - IP Addresses=		"fd00:6d61:7261::11/64"
- 			"10.10.10.1/24"
+- IP Addressed=		"10.10.10.1/24"
 
 Peers:
-- Public Key=		<copy from device (e.g. android)>
-- Allowed IPs=		"fd00:6d61:7261::/48
--  			"10.10.10.2/24"
-- Route Allowed IPs=	<yes (check)>
+- Public Key=			<copy from device (e.g. android)>
+- Allowed IPs=			"fd00:6d61:7261::/48
+- Allowed IPs=			"10.10.10.2/24"
+- Route Allowed IPs=		<yes (check)>
 - Persistent Keep Alive=	"25"
 
 ## Firewall settings:
