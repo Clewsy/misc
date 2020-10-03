@@ -19,4 +19,6 @@ $ cd /media/user/rootfs/opt/scripts
 $ git pull
 ```
 
-Reboot and system will be flashed automatically.  Remember to remove sd card else it will keep re-flashing.  All four LEDs will be on once flashing is complete.
+Reboot and system will be flashed automatically.  Remember to remove sd card else it will keep re-flashing.  All four LEDs will act as a larson scanner while flashing and will turn off once complete.
+
+Default login is debian:temppwd
