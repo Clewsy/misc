@@ -2,7 +2,7 @@
 
 To flash eMMC, after dd'ing image to sd card, enable flasher.  Remove #comment symbol:
 ```shell
-$ vim /media/user/boot/uEnv.txt
+$ vim /media/user/rootfs/boot/uEnv.txt
 ```
 Change:
 ```shell
@@ -15,7 +15,7 @@ cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh
 
 Optionally, update the flasher scripts:
 ```shell
-$ cd /opt/scripts
+$ cd /media/user/rootfs/opt/scripts
 $ git pull
 ```
 
