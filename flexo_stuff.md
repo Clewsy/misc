@@ -42,6 +42,7 @@ Run backup script to copy useful files to file\_cache.
 - DuckDuckGo Privacy Browser
 - Easy XKCD
 - Fennec F-Droid
+- Firefox Klar
 - Forecastie
 - Frost for Facebook
 - Hacker's Keyboard
@@ -49,6 +50,7 @@ Run backup script to copy useful files to file\_cache.
 - Kore
 - M.A.L.P.
 - Maps & GPS Navigation OsmAnd+
+- Motion Eye
 - NewPipe
 - Nextcloud Dev
 - Nextcloud Notes
