@@ -5,7 +5,7 @@ $ dconf list /apps/guake/general/
 ```
 
 # Change/set a setting (key):
-E.g. Change guake transperancy:
+E.g. Change guake transparency:
 ```shell
-$ dconf write /apps/guake/style/background/transperancy 50
+$ dconf write /apps/guake/style/background/transparency 50
 ```
