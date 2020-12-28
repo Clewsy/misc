@@ -12,7 +12,8 @@ $ opkg update && opkg install	luci-app-ddns \
 				wireguard \
 				luci-app-wireguard \
 				qrencode \
-				luci-mod-rpc
+				luci-mod-rpc \
+				luci-ssl
 ```
 
 
@@ -80,7 +81,7 @@ Add new rule:
 - Action=				"accept"
 
 
-## wireguard - android setup
+## wireguard - android setup:
 Interface:
 - Name=			"b4t-tunnel"
 - Private key=		<generate>
@@ -98,5 +99,11 @@ Peer:
 # hass.io precense detection integration with luci:
 ```shell
 $ opkg install luci-mod-rpc
+```
+
+# https access to luci interface:
+Installing luci-openssl will allow access to the luci interface with https (i.e. port 443).
+```shell
+$ opkg install luci-ssl
 ```
 
