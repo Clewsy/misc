@@ -9,7 +9,6 @@ $ opkg update && opkg install	luci-app-ddns \
 				curl \
 				luci-app-adblock \
 				luci-ssl-openssl \
-				wireguard \
 				luci-app-wireguard \
 				qrencode \
 				luci-mod-rpc \
@@ -36,10 +35,10 @@ $ opkg install luci-app-adblock luci-ssl-openssl
 ```
 
 # wireguard - openwrt setup
-- install software wireguard, wireguard-tools, luci-app-wireguard and luci-proto-wireguard (and maybe kmod-wireguard?)
+- install software wireguard-tools, luci-app-wireguard and luci-proto-wireguard.  Just luci-app-wireguard is sufficient and will grab required dependencies.
 - also qrencode for displaying, you guessed it, qr codes through the webui.
 ```shell
-$ opkg install wireguard luci-app-wireguard
+$ opkg install luci-app-wireguard qrencode
 ```
 
 ## create wireguard keys:
@@ -66,19 +65,18 @@ Peers:
 ## Firewall settings:
 Add to "lan" firewall zone.
 
-- Network->Firewall->Traffic Rules
-Add new rule:
+Network->Firewall->Traffic Rules->Add new rule:
 - Name=				"Allow-Wireguard-Inbound"
 - Restrict to address family=	"IVP4 and IPV6"
 - Protocol=			"UDP"
 - Source Zone=			"wan"
 - Source MAC address=		"any"
-- Source address=			"any"
+- Source address=		"any"
 - Source port=			"any"
 - Destination zone=		"Device (input)"
 - Destination address=		"any"
 - Destination port=		"50005"
-- Action=				"accept"
+- Action=			"accept"
 
 
 ## wireguard - android setup:
