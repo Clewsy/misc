@@ -6,7 +6,6 @@ https://openwrt.org/toh/linksys/linksys_wrt32x
 # Install packages:
 ```shell
 $ opkg update && opkg install	luci-app-ddns \
-				curl \
 				luci-app-adblock \
 				luci-ssl-openssl \
 				luci-app-wireguard \
