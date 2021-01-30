@@ -4,8 +4,7 @@ $ gpg -c file.txt
 ```
 Enter passphrase (x2)
 
-Where:
--  -c : Encrypt with a symmetric cipher using a passphrase.  Default cipher is AES128
+Where: -c : Encrypt with a symmetric cipher using a passphrase.  Default cipher is AES128
 
 Note, encrypted file (file.txt.gpg) is created but original file is retained.
 ```shell
