@@ -36,6 +36,7 @@ Run backup script to copy useful files to file\_cache.
 - AntennaPod
 - AnySoftKeyboard
 - Aurora
+- Barinsta
 - Binary Eye
 - Bitwarden
 - DAVx5
@@ -46,14 +47,14 @@ Run backup script to copy useful files to file\_cache.
 - Forecastie
 - Frost for Facebook
 - Hacker's Keyboard
-- InstaGrabber
+- Home Assisstant
 - Kore
 - M.A.L.P.
-- Maps & GPS Navigation OsmAnd+
 - Motion Eye
 - NewPipe
 - Nextcloud Dev
 - Nextcloud Notes
+- OsmAnd~
 - PhoneTrack
 - Simple Calculator
 - Simple Calendar Pro
