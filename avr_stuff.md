@@ -33,7 +33,7 @@ List all programmers:
 ```shell
 $ avrdude -c ?
 ```
-Interrogate avr example (i.e. check wiring is good):
+Interrogate avr example (i.e. check wiring is good)  Also shows fuse byte values:
 ```shell
 $ avrdude -p m328p -c usbasp
 ```
@@ -41,3 +41,12 @@ Communicate with AVR via serial/USART:
 ```shell
 $ screen /dev/ttyUSB0 9600
 ```
+
+Write fuse bits:
+```shell
+$ avrdude -p m328p -c usbasp -U lfuse:w:0xD9:m
+```
+Fuse bytes are low (lfuse) high (hfuse) and extended (efuse).
+Link to useful fuse info: http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega32u4
+Don't forget the avrdude manual: https://www.nongnu.org/avrdude/user-manual/avrdude_toc.html#SEC_Contents
+
