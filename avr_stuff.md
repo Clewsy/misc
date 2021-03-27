@@ -44,7 +44,7 @@ $ screen /dev/ttyUSB0 9600
 
 Write fuse bits:
 ```shell
-$ avrdude -p m328p -c usbasp -U lfuse:w:0xD9:m
+$ avrdude -p m328p -c usbasp -U hfuse:w:0xD9:m
 ```
 Fuse bytes are low (lfuse) high (hfuse) and extended (efuse).
 Link to useful fuse info: http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega32u4
