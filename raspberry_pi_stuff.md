@@ -60,13 +60,13 @@ wifis
 ```
 Or hash password:
 ```yaml
-    wifis:
-        wlan0:
-            access-points:
-                "B4T-Cave":
-                    password: 481dc47d86e25131512312351abc0d62fb3aef639etc
-            dhcp4: true
-            optional: true
+wifis:
+  wlan0:
+    access-points:
+      "B4T-Cave":
+        password: 481dc47d86e25131512312351abc0d62fb3aef639etc
+    dhcp4: true
+    optional: true
 ```
 
 **Note**: network name must be enclosed in quotation marks.
