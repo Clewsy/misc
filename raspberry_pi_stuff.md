@@ -71,5 +71,3 @@ Or hash password:
 
 **Note**: network name must be enclosed in quotation marks.
 
-**Note**: During the first boot, your Raspberry Pi will try to connect to this network. It will fail the first time around. Simply reboot ```sudo reboot``` and it will work.
-
