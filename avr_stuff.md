@@ -35,7 +35,8 @@ $ avrdude -c ?
 ```
 Interrogate avr example (i.e. check wiring is good)  Also shows fuse byte values:
 ```shell
-$ avrdude -p m328p -c usbasp
+$ avrdude -p m328p -c usbasp #no need to specify port for usbasp.
+$ avrdude -p m328p -c stk500v2 -P /dev/ttyACM0  #need to specify port for stk500v2.
 ```
 Communicate with AVR via serial/USART:
 ```shell
