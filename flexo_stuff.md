@@ -32,35 +32,37 @@ Run backup script to copy useful files to file\_cache.
 |Bitwarden	|https://mobileapp.bitwarden.com/fdroid/	|
 
 ### F-Droid Apps
+- AdAway
 - andOTP
 - AntennaPod
-- AnySoftKeyboard
+- Arcticons
 - Aurora
 - Barinsta
 - Binary Eye
 - Bitwarden
 - DAVx5
+- Dawn
 - DuckDuckGo Privacy Browser
 - Easy XKCD
-- Fennec F-Droid
+- Fennec
 - Firefox Klar
 - Forecastie
+- Fritter
 - Frost for Facebook
 - Hacker's Keyboard
 - Home Assisstant
 - Kore
 - M.A.L.P.
-- Motion Eye
+- Magisk
+- Material Files
+- Materialistic
+- motionEye
 - NewPipe
 - Nextcloud Dev
 - Nextcloud Notes
 - OsmAnd~
+- Pdf Viewer Plus
 - PhoneTrack
-- Simple Calculator
-- Simple Calendar Pro
-- Simple Clock
-- Simple File Manager
-- Simple Thank You
 - SolitaireCG
 - Tasks.org
 - Termux
