@@ -23,6 +23,7 @@ Run backup script to copy useful files to file\_cache.
 ### apks
 |App		|URL						|
 |---------------|-----------------------------------------------|
+|Magisk         |https://github.com/topjohnwu/Magisk/           |
 |F-Droid	|https://f-droid.org/				|
 |Signal		|https://signal.org/android/apk/		|
 |ProtonMail	|https://protonapps.com/protonmail-android	|
@@ -54,7 +55,6 @@ Run backup script to copy useful files to file\_cache.
 - Home Assisstant
 - Kore
 - M.A.L.P.
-- Magisk
 - Material Files
 - Materialistic
 - motionEye
