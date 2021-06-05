@@ -12,7 +12,7 @@ Ensure destination of all files is the __Download__ dir for scripted backup to f
 |AntennaPod (Database)		|Menu -> Settings -> Storage -> Import/Export -> Database import/export -> EXPORT -> Download -> Save -> OK			|AntennaPodBackup.db (#)			|
 |OsmAnd+			|Menu -> My Places -> Favourites Menu -> Share -> Nextcloud Dev -> Upload -> (Ugh DL from nextcloud and move to Download)	|favourites.gpx					|
 |NewPipe (Subscriptions)	|Subscriptions screen -> Subscriptions menu -> Export to File -> Download -> Save Symbol					|newpipe\_subscriptions\_############.json	|
-|NewPipe (Database)		|Menu -> Content -> Export Database -> Download -> OK										|NewPipeData-########\_######.zip		|
+|NewPipe (Database)		|Menu -> Settings -> Content -> Export Database -> Download -> OK										|NewPipeData-########\_######.zip		|
 
 ### Backup
 Run backup script to copy useful files to file\_cache.
