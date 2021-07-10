@@ -32,6 +32,6 @@ $ sudo -u www-data php occ files:scan --all
 
 ## Above scan but for use with a docker container
 ```shell
-$ docker exec -u www-data nextcloud-app php occ files:scan --all
+$ docker exec -u www-data nextcloud-app php occ files:scan --all -v
 ```
 
