@@ -57,3 +57,11 @@ Have the client conf file ready: **wg_client_nibbler.conf**
 $ sudo cp wg_client_nibbler.conf /etc/wireguard/wg0.conf
 $ sudo wg-quick up wg0
 ```
+
+Enable autostart at boot with systemd unit file:
+```shell
+$ sudo systemctl enable wg-quick@wg0.service
+$ sudo systemctl start wg-quick@wg0.service
+```
+Where **wg0** is the wireguard interface name.
+
