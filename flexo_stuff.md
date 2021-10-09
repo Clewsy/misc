@@ -7,9 +7,9 @@ Ensure destination of all files is the __Download__ dir for scripted backup to f
 
 |App				|Backup Instructions														|Saved Filename					|
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-|andOTP				|Menu -> Backup -> Backup (encrypted) -> Download -> Save -> Password -> Save							|otp\_accounts.json.aes (#)			|
-|AntennaPod (Subscriptions)	|Menu -> Settings -> Storage -> Import/Export -> OPML export -> Download -> Save -> OK						|antennapod-feeds.opml (#)			|
-|AntennaPod (Database)		|Menu -> Settings -> Storage -> Import/Export -> Database import/export -> EXPORT -> Download -> Save -> OK			|AntennaPodBackup.db (#)			|
+|andOTP				|Menu -> Backup -> Create Backup (encrypted) -> Save -> Password -> Save							|otp\_accounts.json.aes (#)			|
+|AntennaPod (Subscriptions)	|Menu -> Settings -> Storage -> Import/Export -> OPML export -> Save -> OK						|antennapod-feeds.opml (#)			|
+|AntennaPod (Database)		|Menu -> Settings -> Storage -> Import/Export -> Database export -> Save -> OK			|AntennaPodBackup.db (#)			|
 |OsmAnd+			|Menu -> My Places -> Favourites Menu -> Share -> Nextcloud Dev -> Upload -> (Ugh DL from nextcloud and move to Download)	|favourites.gpx					|
 |NewPipe (Subscriptions)	|Subscriptions screen -> Subscriptions menu -> Export to File -> Download -> Save Symbol					|newpipe\_subscriptions\_############.json	|
 |NewPipe (Database)		|Menu -> Settings -> Content -> Export Database -> Download -> OK								|NewPipeData-########\_######.zip		|
@@ -40,7 +40,6 @@ Run backup script to copy useful files to file\_cache.
 - Arcticons
 - Aurora
 - Barinsta
-- Binary Eye
 - Bitwarden
 - DAVx5
 - Dawn
@@ -61,15 +60,16 @@ Run backup script to copy useful files to file\_cache.
 - NewPipe
 - Nextcloud Dev
 - Nextcloud Notes
+- OpenDocument Reader
 - OsmAnd~
 - Pdf Viewer Plus
 - PhoneTrack
 - SolitaireCG
+- Subtracks
 - Tasks.org
 - Termux
 - Termux:API
 - Termux:Styling
 - Termux:Widget
-- Ultrasonic
 - VLC
 - Wireguard
