@@ -58,3 +58,8 @@ Cut seconds out of a longer video.
 ffmpeg -i input_vid.mp4 -ss 00:00:02 -to 00:00:05 -c copy output_vid.mp4
 ```
 
+Remove audio from a video file.
+```shell
+ffmpeg -i vid_with_audio.mp4 -c copy -an vid_without_audio.mp4
+```
+
