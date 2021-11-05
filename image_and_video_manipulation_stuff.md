@@ -45,3 +45,16 @@ Delete gps location data for all \*.jpg files within the current directory.
 ```shell
 $ exiftool -gps:all= *.jpg
 ```
+
+# Using ffmpeg
+
+Simple conversion from one format to another.
+```shell
+$ ffmpeg -i input_vid.mp4 output_vid.mkv
+```
+
+Cut seconds out of a longer video.
+```shell
+ffmpeg -i input_vid.mp4 -ss 00:00:02 -to 00:00:05 -c copy output_vid.mp4
+```
+
