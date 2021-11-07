@@ -35,7 +35,9 @@ Authenticate to the container registry.
 With MFA/2FA - must create an access token.
 
 In gitlab webui:
+
 User_profile_icon_dropdown -> "Edit profile" -> "Access Tokens"
+
 Select "api" as the token scope.
 
 Now the container can be built and pushed (from with the project dir).
