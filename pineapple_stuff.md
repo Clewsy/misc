@@ -1,5 +1,6 @@
 # Default web interface ip
 172.16.42.1:1471
+(Just plug in via usb and this ip should work after it boots)
 
 # Get automated config/connection script
 ```shell
