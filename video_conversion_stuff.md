@@ -29,11 +29,15 @@ $ ffmpeg -i input.mp4 -vcodec libx265 -crf 26 output.mp4
 
 # rotate  a video
 ```shell
-ffmpeg -i in.mov -vf "transpose=1" out.mov
+$ ffmpeg -i in.mov -vf "transpose=1" out.mov
 ```
 Use	"transpose=0"	for 90deg counter-clockwise and vertical flip.
 Use	"transpose=1"	for 90deg clockwise.
 Use	"transpose=2"	for 90deg counter-clockwise.
 Use	"transpose=3"	for 90deg clockwise and vertical flip.
 
+# trim/cut seconds out of a video
+```shell
+$ ffmpeg -i input.mp4 -ss 00:00:10 -to 00:01:00 -c copy output.mp4
+```
 
