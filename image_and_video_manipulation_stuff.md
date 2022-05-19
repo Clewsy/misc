@@ -15,6 +15,11 @@ Rotate image 90 degrees
 $ convert -rotate 90 image.jpg rotated_image.jpg
 ```
 
+Reduce image filesize by reducing image quality.
+```shell
+$ convert image.jpg -quality 80 smaller_image_size.jpg
+```
+
 # Using exiftool
 Install exiftool
 ```shell
@@ -60,6 +65,16 @@ ffmpeg -i input_vid.mp4 -ss 00:00:02 -to 00:00:05 -c copy output_vid.mp4
 
 Remove audio from a video file.
 ```shell
-ffmpeg -i vid_with_audio.mp4 -c copy -an vid_without_audio.mp4
+$ ffmpeg -i vid_with_audio.mp4 -c copy -an vid_without_audio.mp4
 ```
+
+Rotate video.
+```shell
+$ ffmpeg -i input.mp4 -vf "transpose=1" output.mp4
+```
+Where the value for transpose corresponds to the following:
+- 0 = 90CounterCLockwise and Vertical Flip (default)
+- 1 = 90Clockwise
+- 2 = 90CounterClockwise
+- 3 = 90Clockwise and Vertical Flip
 
