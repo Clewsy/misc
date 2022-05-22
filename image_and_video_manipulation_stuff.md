@@ -57,6 +57,8 @@ Simple conversion from one format to another.
 ```shell
 $ ffmpeg -i input_vid.mp4 output_vid.mkv
 ```
+- Use option -sn to disable subtitles in output.
+- Use option -an to disable audio in output.
 
 Cut seconds out of a longer video.
 ```shell
