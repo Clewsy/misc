@@ -51,3 +51,13 @@ Fuse bytes are low (lfuse) high (hfuse) and extended (efuse).
 Link to useful fuse info: http://eleccelerator.com/fusecalc/fusecalc.php?chip=atmega32u4
 Don't forget the avrdude manual: https://www.nongnu.org/avrdude/user-manual/avrdude_toc.html#SEC_Contents
 
+Directly write a hex file to an AVR:
+```shell
+$ avrdude -p m32u4 -c stk500v2 -P /dev/ttyACM0 -U flash:w:Caterina-Leonardo.hex:i
+```
+
+Directly download a hex file from an AVR:
+```shell
+$ avrdude -p m32u4 -c stk500v2 -P /dev/ttyACM0 -U flash:r:Caterina-Leonardo.hex:i
+```
+
