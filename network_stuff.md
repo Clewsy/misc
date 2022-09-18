@@ -27,3 +27,21 @@ $ sudo dhclient -v eth0
 ```shell
 $ lsof -i -P -n
 ```
+
+# Change device MAC
+To determine device name and current MAC:
+```shell
+$ ip link 
+```
+To change MAC (example for device eth0):
+```shell
+$ sudo ip link set dev eth0 down
+$ sudo ip link set dev eth0 address b8:27:eb:75:36:0c
+$ sudo ip link set dev eth0 up
+```
+
+# Set static IP
+```shell
+$ sudo ip addr add 192.168.1.132/24 dev eth0
+```
+
