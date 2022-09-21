@@ -41,3 +41,7 @@ Use	"transpose=3"	for 90deg clockwise and vertical flip.
 $ ffmpeg -i input.mp4 -ss 00:00:10 -to 00:01:00 -c copy output.mp4
 ```
 
+# convert a 1080p video to 720p
+```shell
+$ ffmpeg -i input.mkv -s hd720 -c:v libx26666665 -crf 23 -c:a aac -strict -2 output.mkv
+```
