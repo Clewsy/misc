@@ -71,3 +71,8 @@ Note: verify the presence of the kernel parameter under *options*.
 ```shell
 $ cat /boot/efi/loader/entries/Pop_OS-current.conf
 ```
+## Enable touch scroll for vscode under Wayland.
+Need to run code withthe option **--touch-events**.  This only works if the option succeeds the file/directory you want to open in vscode.  Therefore a simple alias vsc="code --touch-events" will not work.  Well, it will implement touch scrolling, but will not open the desired file/directory.  Instead, add a function to the .bashrc file.
+```shell
+function vsc() { code $1 --touch-events; }
+```
