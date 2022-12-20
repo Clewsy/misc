@@ -55,3 +55,11 @@ $ gnome-extensions enable improvedosk@nick-shmyrev.dev
 # Single-touch open in nautilus (touble-tap is buggy with touchscreen).
 
 Preferences -> Action to Open Items -> Set to "Single Click"
+
+# Get rid of "gjs" mystery app (visible from alt-tab menu).
+
+This is due to using Wayland and the "Desktop Icons NG" extension.  Just disable the extension.
+
+```shell
+$ gnome-extensions disable ding@rastersoft.com
+```
