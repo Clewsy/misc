@@ -63,3 +63,11 @@ This is due to using Wayland and the "Desktop Icons NG" extension.  Just disable
 ```shell
 $ gnome-extensions disable ding@rastersoft.com
 ```
+
+# Guake dropdown with F12 fix
+
+This is a bug with Guake on wayland - https://github.com/Guake/guake/issues/492
+
+Fix is to assign the command *guake -t* to F12 as a custom keyboard shortcut.
+
+
