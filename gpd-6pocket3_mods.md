@@ -51,3 +51,7 @@ Enable the extension (need to log outthen back in again to load new extension).
 ```shell
 $ gnome-extensions enable improvedosk@nick-shmyrev.dev
 ```
+
+# Single-touch open in nautilus (touble-tap is buggy with touchscreen).
+
+Preferences -> Action to Open Items -> Set to "Single Click"
