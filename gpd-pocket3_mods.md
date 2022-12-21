@@ -65,7 +65,7 @@ Fix is to assign the command *guake -t* to F12 as a custom keyboard shortcut.
 ## Fix suspend by forcing S2 suspend (instead of S3).
 Need to add the kernel parameter **mem_sleep_default=s2idle**.  To make this parameter survive a reboot, use the kernelstub command in Pop_OOS.
 ```shell
-sudo kernelstub -a mem_sleep_default=s2isle
+sudo kernelstub -a mem_sleep_default=s2idle
 ```
 Note: verify the presence of the kernel parameter under *options*.
 ```shell
