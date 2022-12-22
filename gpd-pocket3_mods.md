@@ -8,7 +8,7 @@ WaylandEnable=false
 Now when at the login screen the cog will be available to select a Wayland session.
 
 ## Get screen rotation working (including touch and stylus inputs).
-1. Implement kernel parameter (**mem_sleep_default=s2idle**) to correct default orientation at boot.
+1. Implement kernel parameter (**video=DSI-1:panel_orientation=right_side_up**) to correct default orientation at boot.
 Note, pop_os uses kernelstub for implementing kernel parameter changes.  The following may not work for other distros (e.g. Ubuntu uses grub) but the parameter itself should be the same.
 ```shell
 $ sudo kernelstub -a video=DSI-1:panel_orientation=right_side_up
@@ -31,11 +31,11 @@ sudo systemctl restart iio-sensor-proxy.service
 ```
 3. Install the *Screen Rotate* gnome-shell extension:
 ```shell
-$ git clone https://github.com/kosmospredanie/gnome-shell-extension-screen-autorotate.git
+$ git clone https://github.com/shyzus/gnome-shell-extension-screen-autorotate.git
 $ cd gnome-shell-extension-screen-autorotate
-$ cp -r screen-autorotate@kosmospredanie.yandex.ru ~/.local/share/gnome-shell/extensions
+$ cp -r screen-rotate@shyzus.github.io ~/.local/share/gnome-shell/extensions
 ```
-Enable the extension (need to log outthen back in again to load new extension).
+Enable the extension (need to log out then back in again to load new extension).
 ```shell
 $ gnome-extensions enable screen-rotate@shyzus.github.io
 ```
