@@ -73,6 +73,7 @@ $ cat /boot/efi/loader/entries/Pop_OS-current.conf
 ```
 Note this means "standby" is really just idling and using much more power than true standby (to ram).  Therefore, reccomend using hibernation which needs some work to enable in Pop_OS:
 2. Follow the [instructions here](https://support.system76.com/articles/enable-hibernation/) to enable Hibernation under Pop_OS.
+
 [Enable Hibernation under op_OS](https://support.system76.com/articles/enable-hibernation/)
 Test hibernation from the command line:
 ```shell
