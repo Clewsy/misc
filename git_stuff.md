@@ -26,6 +26,7 @@ $ git clone git@gitlab.com:clewsy/scripts
 # Initialise a new repo in the current directory
 ```shell
 $ git init
+$ git branch -m main # This will rename the initial branch from "master" to "main".
 ```
 
 # Add all files in directory to repo
