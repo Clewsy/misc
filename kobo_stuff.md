@@ -15,5 +15,5 @@
 
 
 # Alternative Reader Software
-- [NickelMenu - ikind of a launcher, needed first for KOReader](https://github.com/geek1011/NickelMenu)
+- [NickelMenu - kind of a launcher, needed first for KOReader](https://github.com/geek1011/NickelMenu)
 - [KOReader](https://github.com/koreader/koreader)
