@@ -46,7 +46,7 @@ $ git commit -m "message to attach to the commit"
 # Ignore files from repo
 Create ```.gitgnore``` file in repo root and add to it a list of files to be ignored
 ```shell
-$ vim .gitignore and add file list
+$ vim .gitignore
 ```
 Add file list.
 ```shell
