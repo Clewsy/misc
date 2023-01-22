@@ -57,7 +57,7 @@ $ git commit -m "Added .gitignore file list."
 # Connect local repo to gitlab and push local to gitlab
 ```shell
 $ git remote add origin git@gitlab.com:clewsy/scripts
-$ git push origin master
+$ git push origin master # Change "master" to "main" if needed.
 ```
 
 # Rename a file in the repository
@@ -65,7 +65,7 @@ $ git push origin master
 $ git mv old_filename new_filename
 $ git status
 $ git commit -m "Renamed file"
-$ git push origin master
+$ git push origin master # Change "master" to "main" if needed.
 ```
 
 # Completeley remove a file from repo - including past commits
