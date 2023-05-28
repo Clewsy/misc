@@ -1,19 +1,19 @@
 # Raspbian
 
 ## To enable headless ssh and wifi connection
-Guide: https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
+Guide: https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi
 
 ## Enable ssh by creating a file calles "ssh" in the boot directory
 ```shell
-$ touch /media/jc/boot/ssh
+$ touch /media/jc/boot/ssh #Actually not sure if this is needed anymore.
 ```
 
-## Enable wifi connectivity by creating `wpa_supplicant.conf` file in the boot directory
+## Enable wifi connectivity by creating `wpa_supplicant.conf` file in the bootfs directory
 ```shell
-$ vim /media/jc/boot/wpa_supplicant.conf
+$ vim /media/jc/bootfs/wpa_supplicant.conf
 ```
-Enter into `wpa_supplicant.conf` the following:
 
+Enter into `wpa_supplicant.conf` the following:
 ```shell
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -30,6 +30,7 @@ To avoid storing password in plain text, get the hashed password by using wpa_pa
 ```shell
 $ wpa_passphrase <your_SSID>
 ```
+
 Then enter the corresponding passphrase.
 
 Remember to store hashed passphrase without quotes.  I.e.:
@@ -37,7 +38,23 @@ Remember to store hashed passphrase without quotes.  I.e.:
 	psk=bwbfwekjbhfkjwhbqwh83232dwc78...etc
 ```
 
-Also remeber to change the default login (pi) and password (raspberry).
+## Create a user
+Raspberry Pi os now requires creation of a user for headless setups.
+Add the username and encrypted password to file "userconf.txt" in the "bootfs" directory.
+```shell
+$ vim /media/jc/bootfs/userconf.txt
+```
+
+Add a user into the file with the following format:
+```shell
+username:<encrypted_password>
+```
+
+To generate the encrypted password use the command below and follow the prompts.
+```shell
+$ openssl passwd -6
+```
+
 
 
 # Ubuntu
