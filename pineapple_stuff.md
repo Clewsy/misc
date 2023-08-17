@@ -19,7 +19,7 @@ $ vim /root/.profile
 
 # SD card mount location is /sd
 ```shell
-cd /sd
+$ cd /sd
 ```
 
 # Installing packages - remember use opkg
