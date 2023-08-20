@@ -21,11 +21,11 @@ Where:
 
 Establish reverse ssh connection from the reverse ssh host.
 ```shell
-$ ssh -N -R 44444:localhost:22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@servername_or_ip
+$ ssh -N -R 44444:localhost:22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null server_user@servername_or_ip
 ```
 
 Connect to the reverse ssh host from the server.
 ```shell
-$ ssh -p 44444 user@localhost
+$ ssh -p 44444 user@localhost # Remember, *user* refers to the user of the reverse shell host.
 ```
 
