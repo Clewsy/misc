@@ -6,7 +6,7 @@
 $ ssh -N -R 44444:localhost:22 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@servername_or_ip
 ```
 Where:
-|                               |                                                                                             |
+|Item                           |Description                                                                                  |
 |-------------------------------|---------------------------------------------------------------------------------------------|
 |-N                             |Do not execute a remote command (just forwarding ports).                                     |
 |-R                             |Specifies that the given connection on the remote server will be forwarded to the local side.|
