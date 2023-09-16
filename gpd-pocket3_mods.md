@@ -1,9 +1,9 @@
 # Usability fixes and improvements and workarounds for the GPD-Pocket3 with Pop_OS and Wayland.
 
 ## Enable wayland in Pop+OS
-Need to edit the file at **/etc/gdm3/custom.conf**.
+Need to edit the file at **/etc/gdm3/custom.conf**.  Comment out the WaylandEnable line (default is to enable Wayland).
 ```shell
-WaylandEnable=false
+#WaylandEnable=false
 ```
 Now when at the login screen the cog will be available to select a Wayland session.
 
@@ -18,10 +18,10 @@ Note: verify the presence of the kernel parameter under *options*.
 $ cat /boot/efi/loader/entries/Pop_OS-current.conf
 ```
 2. Configure a translation matrix to correct orientation based on accellerometer sensor.
-Create this file **/etc/udev/hwdb.b/61-sensor-local.hwdb** with the following:
+Create this file **/etc/udev/hwdb.d/61-sensor-local.hwdb** with the following:
 ```shell
 sensor:modalias:*
-  ACCEL_MOUNT_MATRIX=0, -1, 0; -1, 0, 0; 0, 0, 1
+  ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, 1, 0; 1, 0, 0
 ```
 Enable the above with the following command:
 ```shell
@@ -33,7 +33,8 @@ sudo systemctl restart iio-sensor-proxy.service
 ```shell
 $ git clone https://github.com/shyzus/gnome-shell-extension-screen-autorotate.git
 $ cd gnome-shell-extension-screen-autorotate
-$ cp -r screen-rotate@shyzus.github.io ~/.local/share/gnome-shell/extensions
+$ mkdir ~/.local/share/gnome-shell/extensions
+$ cp -r screen-rotate@shyzus.github.io ~/.local/share/gnome-shell/extensions/.
 ```
 Enable the extension (need to log out then back in again to load new extension).
 ```shell
@@ -51,12 +52,6 @@ Will require a reboot.
 ## Single-touch open in nautilus (touble-tap is buggy with touchscreen).
 Preferences -> Action to Open Items -> Set to "Single Click"
 
-## Get rid of "gjs" mystery app (visible from alt-tab menu).
-This is due to using Wayland and the "Desktop Icons NG" extension.  Just disable the extension.
-```shell
-$ gnome-extensions disable ding@rastersoft.com
-```
-
 ## Guake dropdown with F12 fix
 This is a bug with Guake on wayland - https://github.com/Guake/guake/issues/492
 
@@ -69,7 +64,7 @@ sudo kernelstub -a mem_sleep_default=s2idle
 ```
 Note: verify the presence of the kernel parameter under *options*.
 ```shell
-$ cat /boot/efi/loader/entries/Pop_OS-current.conf
+$ sudo cat /boot/efi/loader/entries/Pop_OS-current.conf
 ```
 Note this means "standby" is really just idling and using much more power than true standby (to ram).  Therefore, reccomend using hibernation which needs some work to enable in Pop_OS:
 2. Follow the [instructions here](https://support.system76.com/articles/enable-hibernation/) to enable Hibernation under Pop_OS.
