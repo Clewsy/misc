@@ -110,5 +110,5 @@ After a reboot, hibernate should be an option in the gui.
 ## Enable touch scroll for vscode under Wayland.
 Need to run code withthe option **--touch-events**.  This only works if the option succeeds the file/directory you want to open in vscode.  Therefore a simple alias vsc="code --touch-events" will not work.  Well, it will implement touch scrolling, but will not open the desired file/directory.  Instead, add a function to the .profile file.
 ```shell
-function vsc() { code $1 --touch-events; }
+function vsc() { /usr/bin/code $1 --touch-events; }
 ```
