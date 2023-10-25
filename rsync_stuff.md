@@ -2,7 +2,7 @@
 
 ## typical usage options
 ```shell
-rsync -a -v -h --progress traget destination
+rsync -a -v -h --progress target destination
 # -a | --archive    ## Archive mode, equivalent to -rlptgoD (no -H, -A, -X).
 # -v | --verbose
 # -h | --human-readable
