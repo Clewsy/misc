@@ -21,7 +21,9 @@ $ cat /boot/efi/loader/entries/Pop_OS-current.conf
 Create this file **/etc/udev/hwdb.d/61-sensor-local.hwdb** with the following:
 ```shell
 sensor:modalias:*
-  ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, 1, 0; 1, 0, 0
+  ACCEL_MOUNT_MATRIX=0, -1, 0; -1, 0, 0; 0, 0, 1
+  # ACCEL_MOUNT_MATRIX=-1, 0, 0; 0, 1, 0; 1, 0, 0 ## This version worked previously.
+
 ```
 Enable the above with the following command:
 ```shell
