@@ -36,7 +36,7 @@ $ sudo ifconfig
 ```
 2. Then enable interface. e.g.
 ```shell
-$ sudo ifconfig enx00c0ca90d48d 172.16.42.42 netmask 255.255.255.0 up
+$ sudo ifconfig enx00c0ca90d48d 172.16.42.42 netmask 255.255.255.0 up #Use 192.168.1.2 for fresh openwrt install.
 ```
 
 # Firmware Installation/Recovery
@@ -61,7 +61,7 @@ $ sudo ifconfig eth1 192.168.1.2 netmask 255.255.255.0 up #(where eth1 is the in
 - Click Choose File and select the factory firmware image downloaded above.
 - Click Update Firmware.
 - This process will take several minutes. Do not interrupt the power supply while the firmware is updating. Once complete, the WiFi Pineapple will restart.
-- Reset the the WiFi Pineapple facing USB Ethernet interface back to DHCP or 172.16.42.42 with netmask 255.255.255.0
+- Reset the the WiFi Pineapple facing USB Ethernet interface back to DHCP or 172.16.42.42 with netmask 255.255.255.0.  Keep interface set to 192.168.1.2 for openWrt and access LUCI at 192.168.1.1
 
 # OpenWRT on the pineapple nano
 
