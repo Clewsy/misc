@@ -74,3 +74,56 @@ https://openwrt.org/toh/hwdata/hak5/hak5_wifi_pineapple_nano
 3. Configure interface "br-lan" to be a DHCP client and obtain its IP from the LAN.  "Network"->"Interfaces". "lan" interface -> "Edit".  Set "Protocol" to "DHCP client".
 4. Create a wireless access point and be sure to add it to the "lan" inteface to effectively bridge it to the ethernet connections.
 5. Some restarting may be needed along the way.
+
+## Auto-mount an SD card with openWRT.
+1. Update packages and install *kmod-mmc*.  After installation, the SD card should be automatically recognised and listed in /dev/ (i.e. /dev/sda).
+2. Install *block-mount* to get info about partitions.  Test by running the command **block**.
+3. Install *kmod-fs-ext4* - ext4 file system drivers.
+4. Generate a config entry for the fstab file:
+```shell
+$ block detect | uci import fstab
+```
+5. Now enable automount on that config entry:
+```shell
+$ uci set fstab.@mount[-1].enabled='1'
+$ uci commit fstab
+```
+6. Optionally enable autocheck of the file system each time the OpenWrt device powers up:
+```shell
+$ uci set fstab.@global[0].check_fs='1'
+$ uci commit fstab
+```
+7. Reboot OpenWrt device (to verify that automount works). After the reboot, check your results: Run
+```shell
+$ uci show fstab
+```
+It should showe something like this:
+```shell
+fstab.@global[0]=global
+fstab.@global[0].anon_swap='0'
+fstab.@global[0].anon_mount='0'
+fstab.@global[0].auto_swap='1'
+fstab.@global[0].auto_mount='1'
+fstab.@global[0].check_fs='0'
+fstab.@global[0].delay_root='5'
+fstab.@mount[0]=mount
+fstab.@mount[0].target='/mnt/sda1'
+fstab.@mount[0].uuid='77ed0845-874f-439e-b113-bd2af8adbbef'
+fstab.@mount[0].enabled='1'
+```
+Check the “enabled” entry. It should be '1'.
+Note the “target” entry. This is the file path, where your attached USB storage drive can be accessed from now on. E.g. you can now list files from your external disk:
+```shell
+$ ls -l /mnt/sda1
+```
+Run the following command, to verify that the disk is properly mounted at this path
+```shell
+$ block info
+```
+The result will be:
+```shell
+...
+/dev/sda1: UUID="2eb39413-83a4-4bae-b148-34fb03a94e89" VERSION="1.0" MOUNT="/mnt/sda1" TYPE="ext4"
+```
+
+
