@@ -82,16 +82,16 @@ Check raid devices type and raid array:
 ```shell
 $ sudo mdadm -E /dev/sd[b-c]1
 ...
-	Raid Level   : raid1
-	Raid Devices : 2
+    Raid Level   : raid1
+    Raid Devices : 2
 ...
 $ sudo mdadm --detail /dev/md0
 ...
-	State           : clean
-	Active Devices  : 2
-	Working Devices : 2
-	Failed Devices  : 0
-	Spare Devices   : 0
+    State           : clean
+    Active Devices  : 2
+    Working Devices : 2
+    Failed Devices  : 0
+    Spare Devices   : 0
 ...
 ```
 Create file system on raid device.
@@ -102,8 +102,8 @@ Discarding device blocks: done
 Creating filesystem with 58574480 4k blocks and 14647296 inodes
 Filesystem UUID: 0650992b-c39e-4a30-8cc8-90ac94503b59
 Superblock backups stored on blocks: 
-	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
-	4096000, 7962624, 11239424, 20480000, 23887872
+    32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+    4096000, 7962624, 11239424, 20480000, 23887872
 
 Allocating group tables: done                            
 Writing inode tables: done                            

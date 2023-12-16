@@ -36,11 +36,11 @@ $ sudo usermod -aG docker jc
 
 ## 4 Set up firewall
 ```shell
-$ sudo ufw allow OpenSSH	#opens port 22
-$ sudo ufw allow http		#opens port 80
-$ sudo ufw allow https		#opens port 443
+$ sudo ufw allow OpenSSH    #opens port 22
+$ sudo ufw allow http       #opens port 80
+$ sudo ufw allow https      #opens port 443
 $ sudo ufw enable
-$ sudo ufw status		#to confirm it's running as expected
+$ sudo ufw status           #to confirm it's running as expected
 ```
 
 ## Addendum

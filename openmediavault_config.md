@@ -57,8 +57,8 @@ Turn on **Monitor** for:
 
 No changes, but check mirror is detected:
 * host:cl0ud -> /dev/md127 -> clean -> Mirror -> 111.79 GiB ->
-	* /dev/sdc
-	* /dev/sdd
+    * /dev/sdc
+    * /dev/sdd
 
 ## File Systems
 
@@ -138,91 +138,91 @@ Add and enable each of the following:
 Specific settings for these shares:
 
 1. daily_0100hrs docker_zoidberg zoid->zapp
-	* Enable: check
-	* Type: Remote
-	* Mode: Pull
-	* Source server: clewsy@zoidberg:/home/docker
-	* Destination shared folder: docker_zoidberg
-	* Authentication: Public key
-	* SSH port: 22
-	* SSH certificate: user@zapp
-	* Minute: 0
-	* Hour: 1
-	* Turn on:
-		* Archive
-		* Recursive
-		* Preserve permissions
-		* Preserve modification times
-		* Preserve group
-		* Preserve owner
-		* Preserve ACLs
-		* Delete
-	* Extra options: --human-readable
-	* Comment: daily_0100hrs docker_zoidberg zoid->zapp
+    * Enable: check
+    * Type: Remote
+    * Mode: Pull
+    * Source server: clewsy@zoidberg:/home/docker
+    * Destination shared folder: docker_zoidberg
+    * Authentication: Public key
+    * SSH port: 22
+    * SSH certificate: user@zapp
+    * Minute: 0
+    * Hour: 1
+    * Turn on:
+        * Archive
+        * Recursive
+        * Preserve permissions
+        * Preserve modification times
+        * Preserve group
+        * Preserve owner
+        * Preserve ACLs
+        * Delete
+    * Extra options: --human-readable
+    * Comment: daily_0100hrs docker_zoidberg zoid->zapp
 2. daily_0200hrs docker_zoidberg zapp->user
-	* Enable: check
-	* Type: Remote
-	* Mode: Push
-	* Source shared folder: docker_zoidberg
-	* Destination server: user@user.site:~/backups/docker_zoidberg
-	* Authentication: Public key
-	* SSH port: 22
-	* SSH certificate: user@zapp
-	* Minute: 0
-	* Hour: 2
-	* Turn on:
-		* Archive
-		* Recursive
-		* Preserve permissions
-		* Preserve modification times
-		* Preserve group
-		* Preserve owner
-		* Preserve ACLs
-		* Delete
-	* Extra options: --human-readable
-	* Comment: daily_0200hrs docker_zoidberg zapp->user
+    * Enable: check
+    * Type: Remote
+    * Mode: Push
+    * Source shared folder: docker_zoidberg
+    * Destination server: user@user.site:~/backups/docker_zoidberg
+    * Authentication: Public key
+    * SSH port: 22
+    * SSH certificate: user@zapp
+    * Minute: 0
+    * Hour: 2
+    * Turn on:
+        * Archive
+        * Recursive
+        * Preserve permissions
+        * Preserve modification times
+        * Preserve group
+        * Preserve owner
+        * Preserve ACLs
+        * Delete
+    * Extra options: --human-readable
+    * Comment: daily_0200hrs docker_zoidberg zapp->user
 3. daily_0300hrs file_cache seymour->zapp
-	* Enable: check
-	* Type: Remote
-	* Mode: Pull
-	* Source server: user@seymour:~/file_cache
-	* Destination shared folder: cl0ud
-	* Authentication: Public key
-	* SSH port: 22
-	* SSH certificate: user@zapp
-	* Minute: 0
-	* Hour: 3
-	* Turn on:
-		* Archive
-		* Recursive
-		* Preserve permissions
-		* Preserve modification times
-		* Preserve group
-		* Preserve owner
-		* Preserve ACLs
-	* Extra options: --human-readable
-	* Comment: daily_0300hrs file_cache seymour->zapp
+    * Enable: check
+    * Type: Remote
+    * Mode: Pull
+    * Source server: user@seymour:~/file_cache
+    * Destination shared folder: cl0ud
+    * Authentication: Public key
+    * SSH port: 22
+    * SSH certificate: user@zapp
+    * Minute: 0
+    * Hour: 3
+    * Turn on:
+        * Archive
+        * Recursive
+        * Preserve permissions
+        * Preserve modification times
+        * Preserve group
+        * Preserve owner
+        * Preserve ACLs
+    * Extra options: --human-readable
+    * Comment: daily_0300hrs file_cache seymour->zapp
 4. daily_0400hrs file_cache zapp->user
-	* Enable: check
-	* Type: Remote
-	* Mode: Push
-	* Source shared folder: file_cache
-	* Destination server: user@user.site:~/backups/file_cache
-	* Authentication: Public key
-	* SSH port: 22
-	* SSH certificate: user@zapp
-	* Minute: 0
-	* Hour: 4
-	* Turn on:
-		* Archive
-		* Recursive
-		* Preserve permissions
-		* Preserve modification times
-		* Preserve group
-		* Preserve owner
-		* Preserve ACLs
-	* Extra options: --human-readable
-	* Comment: daily_0400hrs file_cache zapp->user
+    * Enable: check
+    * Type: Remote
+    * Mode: Push
+    * Source shared folder: file_cache
+    * Destination server: user@user.site:~/backups/file_cache
+    * Authentication: Public key
+    * SSH port: 22
+    * SSH certificate: user@zapp
+    * Minute: 0
+    * Hour: 4
+    * Turn on:
+        * Archive
+        * Recursive
+        * Preserve permissions
+        * Preserve modification times
+        * Preserve group
+        * Preserve owner
+        * Preserve ACLs
+    * Extra options: --human-readable
+    * Comment: daily_0400hrs file_cache zapp->user
 
 Remember to add keys to known hosts and test the rsync jobs.
 

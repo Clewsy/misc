@@ -1,12 +1,12 @@
 # Install avrdude stuff
 ```shell
 $ sudo apt update && sudo apt install \
-	avrdude \
-	avrdude-doc \
-	binutils-avr \
-	avr-libc \
-	gcc-avr \
-	gdb-avr
+    avrdude \
+    avrdude-doc \
+    binutils-avr \
+    avr-libc \
+    gcc-avr \
+    gdb-avr
 ```
 
 # Making - will compile executable "main"

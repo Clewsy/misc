@@ -35,7 +35,7 @@ Then enter the corresponding passphrase.
 
 Remember to store hashed passphrase without quotes.  I.e.:
 ```shell
-	psk=bwbfwekjbhfkjwhbqwh83232dwc78...etc
+  psk=bwbfwekjbhfkjwhbqwh83232dwc78...etc
 ```
 
 ## Create a user

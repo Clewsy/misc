@@ -28,7 +28,7 @@ $ sudo vim /etc/fstab
 Add the nfs share as a new line item:
 ```shell
 ...
-[hostname]:/[remote_path]	[local_path]	nfs	auto,rw,user,intr,bg	0	0
+[hostname]:/[remote_path]    [local_path]    nfs auto,rw,user,intr,bg    0   0
 ```
 Notes:
 * `auto` : Automatically detect the filesystem type. 
@@ -45,5 +45,5 @@ $ sudo vim /etc/fstab
 Add the following:
 ```shell
 ...
-zapp:/export/D4T4	/mnt/D4T4	nfs	auto,rw,user,intr,bg	0	0
+zapp:/export/D4T4    /mnt/D4T4    nfs    auto,rw,user,intr,bg    0    0
 ```

@@ -2,12 +2,12 @@
 
 ### List current rules
 ```shell
-$ iptables -L -v		#-L to list current rules, -v for verbose
+$ iptables -L -v    #-L to list current rules, -v for verbose
 ```
 Chain types:
-- `INPUT`	This chain is used to control the behavior for incoming connections. 
-- `FORWARD`	This chain is used for incoming connections that aren’t actually being delivered locally. Think of a router...
-- `OUTPUT`	This chain is used for outgoing connections.
+- `INPUT`   This chain is used to control the behavior for incoming connections. 
+- `FORWARD` This chain is used for incoming connections that aren’t actually being delivered locally. Think of a router...
+- `OUTPUT`  This chain is used for outgoing connections.
 
 ### Set default policies
 Setting "policy" for the chains sets the default behaviour.  The following example sets defaults to accept connections.

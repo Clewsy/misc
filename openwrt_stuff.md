@@ -5,13 +5,13 @@ https://openwrt.org/toh/linksys/linksys_wrt32x
 
 # Install packages:
 ```shell
-$ opkg update && opkg install	luci-app-ddns \
-				luci-app-adblock \
-				luci-ssl-openssl \
-				luci-app-wireguard \
-				qrencode \
-				luci-mod-rpc \
-				luci-ssl
+$ opkg update && opkg install    luci-app-ddns \
+                luci-app-adblock \
+                luci-ssl-openssl \
+                luci-app-wireguard \
+                qrencode \
+                luci-mod-rpc \
+                luci-ssl
 ```
 
 
@@ -42,55 +42,55 @@ $ opkg install luci-app-wireguard qrencode
 
 ## create wireguard keys:
 ```shell
-wg genkey > wg_privkey			##Create the private key
-wg pubkey < wg_privkey > wg_pubkey	##Derive the public key from the private key
+wg genkey > wg_privkey            ##Create the private key
+wg pubkey < wg_privkey > wg_pubkey    ##Derive the public key from the private key
 ```
 
 ## Create a new interface with "Wireguard" protocol
 General setup:
-- Protocol=		"WireGuard VPN"
-- Private Key=		<copy here, see above>
-- Listen Port=		"50005"
-- IP Addresses=		"fd00:6d61:7261::11/64"
-- IP Addressed=		"10.10.10.1/24"
+- Protocol=     "WireGuard VPN"
+- Private Key=  <copy here, see above>
+- Listen Port=  "50005"
+- IP Addresses= "fd00:6d61:7261::11/64"
+- IP Addressed= "10.10.10.1/24"
 
 Peers:
-- Public Key=			<copy from device (e.g. android)>
-- Allowed IPs=			"fd00:6d61:7261::/48
-- Allowed IPs=			"10.10.10.2/24"
-- Route Allowed IPs=		<yes (check)>
-- Persistent Keep Alive=	"25"
+- Public Key=               <copy from device (e.g. android)>
+- Allowed IPs=              "fd00:6d61:7261::/48
+- Allowed IPs=              "10.10.10.2/24"
+- Route Allowed IPs=        <yes (check)>
+- Persistent Keep Alive=    "25"
 
 ## Firewall settings:
 Add to "lan" firewall zone.
 
 Network->Firewall->Traffic Rules->Add new rule:
-- Name=				"Allow-Wireguard-Inbound"
-- Restrict to address family=	"IVP4 and IPV6"
-- Protocol=			"UDP"
-- Source Zone=			"wan"
-- Source MAC address=		"any"
-- Source address=		"any"
-- Source port=			"any"
-- Destination zone=		"Device (input)"
-- Destination address=		"any"
-- Destination port=		"50005"
-- Action=			"accept"
+- Name=                         "Allow-Wireguard-Inbound"
+- Restrict to address family=   "IVP4 and IPV6"
+- Protocol=                     "UDP"
+- Source Zone=                  "wan"
+- Source MAC address=           "any"
+- Source address=               "any"
+- Source port=                  "any"
+- Destination zone=             "Device (input)"
+- Destination address=          "any"
+- Destination port=             "50005"
+- Action=                       "accept"
 
 
 ## wireguard - android setup:
 Interface:
-- Name=			"b4t-tunnel"
-- Private key=		<generate>
-- Public key=		<generated>
-- Addresses=		"10.10.10.2/24, fd00:6d61:7261::/48"
-- DNS servers=		"192.168.1.1"
+- Name=         "b4t-tunnel"
+- Private key=  <generate>
+- Public key=   <generated>
+- Addresses=    "10.10.10.2/24, fd00:6d61:7261::/48"
+- DNS servers=  "192.168.1.1"
 
 Peer:
-- Public key=		<copy from openwrt>
-- Allowed IPs=		"0.0.0.0, ::/0
-- Endpoint=		"b4t.site:50005"
-- Persistent keepalive=	"25"
+- Public key=           <copy from openwrt>
+- Allowed IPs=          "0.0.0.0, ::/0
+- Endpoint=             "b4t.site:50005"
+- Persistent keepalive= "25"
 
 
 # hass.io precense detection integration with luci:

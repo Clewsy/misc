@@ -1,16 +1,16 @@
 # regex expressions
 ```shell
-.	#will match any character
-[ ]	#will match a range of characters
-[^ ]	#will match all character except for the one mentioned in braces
-*	#will match zero or more of the preceding items
-+	#will match one or more of the preceding items
-?	#will match zero or one of the preceding items
-{n}	#will match ‘n’ numbers of preceding items
-{n,}	#will match ‘n’ number of or more of preceding items
-{n m}	#will match between ‘n’ & ‘m’ number of items
-{ ,m}	#will match less than or equal to m number of items
-\	#is an escape character, used when we need to include one of the metcharacters is our search.
+.       #will match any character
+[ ]     #will match a range of characters
+[^ ]    #will match all character except for the one mentioned in braces
+*       #will match zero or more of the preceding items
++       #will match one or more of the preceding items
+?       #will match zero or one of the preceding items
+{n}     #will match ‘n’ numbers of preceding items
+{n,}    #will match ‘n’ number of or more of preceding items
+{n m}   #will match between ‘n’ & ‘m’ number of items
+{ ,m}   #will match less than or equal to m number of items
+\       #is an escape character, used when we need to include one of the metcharacters is our search.
 ```
 
 # Example uses of `rename`

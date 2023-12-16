@@ -6,12 +6,12 @@ ansible <hostname> -m setup
 # ansible-vault
 Encrypt a file with the vault key:
 ```shell
-$ cd /ansible	#Run encryption command from the directory that contains the vault key.
+$ cd /ansible #Run encryption command from the directory that contains the vault key.
 $ ansible-vault encrypt roles/example/files/secret.txt
 ```
 Edit encrypted file
 ```shell
-$ cd /ansible	#Run encryption command from the directory that contains the vault key.
+$ cd /ansible #Run encryption command from the directory that contains the vault key.
 $ ansible-vault edit roles/example/files/secret.txt
 ``` 
 
