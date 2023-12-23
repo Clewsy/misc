@@ -99,3 +99,19 @@ $ git push origin --force --tags
 7. *Mirror Repository*
 8. Test by pressing the *Update now* button.
 
+# Undo changes in repo
+
+## Use *reset* to unstage any files staged with ```git add```.
+```shell
+$ git reset
+```
+
+## Use *checkout* to revert all local uncommitted changes (execute within repo root).
+```shell
+$ git checkout .
+```
+
+## Another way to revert all local uncommitted changes (from any repo sub-directory).
+```
+$ git reset --hard HEAD
+```
