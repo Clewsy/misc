@@ -12,8 +12,8 @@ This worked when an external USB ntfs disk partition (/dev/sda1) stopped mountin
 Use the *ntfsfix* util included withthe *ntfs-3g* package.
 
 ```shell
-# sudo apt update && sudo apt install ntfs-36
-$ sudo ntfs -b /dev/sda1
+$ sudo apt update && sudo apt install ntfs-36
+$ sudo ntfsfix -b /dev/sda1
 
 ```
 
