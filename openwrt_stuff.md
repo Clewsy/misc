@@ -1,8 +1,5 @@
 # Reminder, uses dropbear for ssh.  Keys and authorized_keys at /etc/dropbear
 
-# link to latest firmware for Linksys WRT32X
-https://openwrt.org/toh/linksys/linksys_wrt32x
-
 # Install packages:
 ```shell
 $ opkg update && opkg install    luci-app-ddns \
@@ -25,24 +22,24 @@ $ opkg install luci-app-ddns curl
 
 # adblock
 - install software - luci-app-adblock
-- lan interface - USe custom DNS servers - set to 192.168.1.1
+- lan interface - Use custom DNS servers - set to 192.168.1.1
 - wan inteface - advanced settings - Use custom DNS servers - set to 192.168.1.1 and 1.1.1.1
 - !! Ensure luci-ssl-openssl package is installed (will automatically install libustream-openssl)
-- confirm that openwrt->Services->Adblock page shows a result under "Overall Domains" (i.e. non-zero).
+- confirm that openwrt->Services->Adblock page shows a result under "Blocked Domains" (i.e. non-zero).  Try clicking "Reload".
 ```shell
 $ opkg install luci-app-adblock luci-ssl-openssl
 ```
 
 # wireguard - openwrt setup
-- install software wireguard-tools, luci-app-wireguard and luci-proto-wireguard.  Just luci-app-wireguard is sufficient and will grab required dependencies.
+- install software wireguard-tools and luci-proto-wireguard.  Just luci-proto-wireguard is sufficient and will grab required dependencies.
 - also qrencode for displaying, you guessed it, qr codes through the webui.
 ```shell
-$ opkg install luci-app-wireguard qrencode
+$ opkg install luci-proto-wireguard qrencode
 ```
 
 ## create wireguard keys:
 ```shell
-wg genkey > wg_privkey            ##Create the private key
+wg genkey > wg_privkey                ##Create the private key
 wg pubkey < wg_privkey > wg_pubkey    ##Derive the public key from the private key
 ```
 
@@ -53,6 +50,7 @@ General setup:
 - Listen Port=  "50005"
 - IP Addresses= "fd00:6d61:7261::11/64"
 - IP Addressed= "10.10.10.1/24"
+- Firewall Settings-> add to "lan" firewall zone.
 
 Peers:
 - Public Key=               <copy from device (e.g. android)>
@@ -62,14 +60,10 @@ Peers:
 - Persistent Keep Alive=    "25"
 
 ## Firewall settings:
-Add to "lan" firewall zone.
-
 Network->Firewall->Traffic Rules->Add new rule:
 - Name=                         "Allow-Wireguard-Inbound"
-- Restrict to address family=   "IVP4 and IPV6"
 - Protocol=                     "UDP"
 - Source Zone=                  "wan"
-- Source MAC address=           "any"
 - Source address=               "any"
 - Source port=                  "any"
 - Destination zone=             "Device (input)"
@@ -93,7 +87,7 @@ Peer:
 - Persistent keepalive= "25"
 
 
-# hass.io precense detection integration with luci:
+# hass.io presense detection integration with luci:
 ```shell
 $ opkg install luci-mod-rpc
 ```
