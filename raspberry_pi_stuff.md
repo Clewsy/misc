@@ -5,7 +5,7 @@ Guide: https://www.raspberrypi.com/documentation/computers/configuration.html#se
 
 ## Enable ssh by creating a file calles "ssh" in the boot directory
 ```shell
-$ touch /media/jc/boot/ssh #Actually not sure if this is needed anymore.
+$ touch /media/jc/boot/firmware/ssh
 ```
 
 ## Enable wifi connectivity by creating `wpa_supplicant.conf` file in the bootfs directory
