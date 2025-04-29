@@ -29,6 +29,17 @@ $ git init
 $ git branch -m main # This will rename the initial branch from "master" to "main".
 ```
 
+# Ignore files from repo
+Create ```.gitgnore``` file in repo root and add to it a list of files to be ignored
+```shell
+$ vim .gitignore
+```
+Add file list.
+```shell
+$ git add .gitignore
+$ git commit -m "Added .gitignore file list."
+```
+
 # Add all files in directory to repo
 ```shell
 $ git add .
@@ -41,17 +52,6 @@ $ git add -A
 # Commit files to repo
 ```shell
 $ git commit -m "message to attach to the commit"
-```
-
-# Ignore files from repo
-Create ```.gitgnore``` file in repo root and add to it a list of files to be ignored
-```shell
-$ vim .gitignore
-```
-Add file list.
-```shell
-$ git add .gitignore
-$ git commit -m "Added .gitignore file list."
 ```
 
 # Connect local repo to gitlab and push local to gitlab
