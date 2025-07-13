@@ -6,14 +6,15 @@ $ vim /media/user/rootfs/boot/uEnv.txt
 ```
 Change:
 ```shell
-#cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh
+#cmdline=init=/usr/sbin/init-beagle-flasher
 ```
 to:
 ```shell
-cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh
+cmdline=init=/usr/sbin/init-beagle-flasher
 ```
 
 Optionally, update the flasher scripts:
+(scripts directory no longer present - no longer applicable?)
 ```shell
 $ cd /media/user/rootfs/opt/scripts
 $ git pull
