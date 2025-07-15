@@ -57,7 +57,7 @@ Preferences -> Action to Open Items -> Set to "Single Click"
 ## Guake dropdown with F12 fix
 This is a bug with Guake on wayland - https://github.com/Guake/guake/issues/492
 
-Fix is to assign the command *guake -t* to F12 as a custom keyboard shortcut.
+Fix is to assign the command */usr/bin/guake-toggle* to F12 as a custom keyboard shortcut.
 
 ## Fix suspend by forcing S2 suspend (instead of S3).
 1. Need to add the kernel parameter **mem_sleep_default=s2idle**.  To make this parameter survive a reboot, use the kernelstub command in Pop_OOS.
