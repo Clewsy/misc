@@ -9,7 +9,9 @@ Now when at the login screen the cog will be available to select a Wayland sessi
 
 ## Get screen rotation working (including touch and stylus inputs).
 1. Implement kernel parameter (**video=DSI-1:panel_orientation=right_side_up**) to correct default orientation at boot.
-Note, pop_os uses kernelstub for implementing kernel parameter changes.  The following may not work for other distros (e.g. Ubuntu uses grub) but the parameter itself should be the same.
+
+### pop_os
+pop_os uses kernelstub for implementing kernel parameter changes.  The following may not work for other distros (e.g. Ubuntu uses grub) but the parameter itself should be the same.
 ```shell
 $ sudo kernelstub -a video=DSI-1:panel_orientation=right_side_up
 ```
@@ -17,6 +19,22 @@ Note: verify the presence of the kernel parameter under *options*.
 ```shell
 $ cat /boot/efi/loader/entries/Pop_OS-current.conf
 ```
+
+### Ubuntu
+Ubuntu custom kernel parameters are implemented with grub.  Modify the file **/etc/default/grub** by adding the **video=DSI-1:panel_orientation=right_side_up** parameter.
+```shell
+$ sudo vim /etc/default/grub
+```
+Need to add the parameter into the line with **GRUB_CMDLINE_LINUX_DEFAULT** - ensure a single space between any other parameters.  E.g.
+```shell
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=DSI-1:panel_orientation=right_side_up"
+```
+Once saved, update grub and reboot.
+```shell
+$ sudo update-grub
+$ reboot
+```
+
 2. Configure a translation matrix to correct orientation based on accellerometer sensor.
 Create this file **/etc/udev/hwdb.d/61-sensor-local.hwdb** with the following:
 ```shell
