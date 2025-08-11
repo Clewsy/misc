@@ -5,10 +5,13 @@ Guide: https://www.raspberrypi.com/documentation/computers/configuration.html#se
 
 ## Enable ssh by creating a file calles "ssh" in the boot directory
 ```shell
-$ touch /media/jc/boot/firmware/ssh
+$ touch /media/jc/bootfs/ssh
 ```
 
 ## Enable wifi connectivity by creating `wpa_supplicant.conf` file in the bootfs directory
+
+**UPDATE: for some reason this configuration option has been disabled.  Now the only way to pre-configure wifi is by using the "advanced settings" in the "imager" software.**
+
 ```shell
 $ vim /media/jc/bootfs/wpa_supplicant.conf
 ```
