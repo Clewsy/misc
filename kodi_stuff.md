@@ -37,6 +37,7 @@
 ``` bash
 $ sudo apt install kodi-inputstream-adaptive
 ```
+4. Reboot.
 5. Return to step 1. and try again.
 
 ### Configure the add-on
