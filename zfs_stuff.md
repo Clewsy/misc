@@ -62,3 +62,14 @@ $ zpool import
 $ zpool import pool_name
 ```
 
+## delete a dataset
+
+```shell
+$ zfs destroy dataset_name
+```
+
+## delete a pool
+```shell
+$ zpool destroy pool_name
+```
+
