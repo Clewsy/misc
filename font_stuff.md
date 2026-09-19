@@ -18,4 +18,5 @@ $ sudo dpkg-reconfigure console-setup
 - Character set to support: Arabic
 - Font for the console: VGA
 - Font size: 16x32
+- Alternatively, DejaVu 16x30 is a good option.
 
