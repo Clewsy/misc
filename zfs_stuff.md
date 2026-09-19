@@ -60,6 +60,9 @@ $ zpool import
 
 ## import a specific pool:
 $ zpool import pool_name
+
+## if devices change
+$ zpool import -a -d /dev/disk/by-id
 ```
 
 ## delete a dataset
