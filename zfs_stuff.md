@@ -13,7 +13,7 @@ $ sudo apt install zfsutils-linux
 $ sudo zpool create pool_name /dev/sdX /dev/sdY
 
 ## will mount pool_name at /data/pool_name
-$sudo zpool create -m /data/pool_name pool_name /dev/sdX /dev/sdY
+$ sudo zpool create -m /data/pool_name pool_name /dev/sdX /dev/sdY
 
 ```
 ## create a zfs dataset
