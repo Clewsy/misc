@@ -76,3 +76,12 @@ $ zfs destroy dataset_name
 $ zpool destroy pool_name
 ```
 
+## share a dataset over the network (nfs)
+```shell
+## basic nfs allow
+$ zfs set sharenfs=on pool_name/dataset_name
+
+## advancd, neded to overcome permissions issues
+$ zfs set sharenfs="rw,insecure,no_root_squash,async" pool_name/dataset_name
+```
+can now access dataset_name over the LAN at *nfs://host_name/path/pool_name/datast_name*
